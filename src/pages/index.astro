@@ -1,157 +1,135 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import CtaSection from '../components/CtaSection.astro';
+import { SITE } from '../data/site';
+import { SERVICES } from '../data/services';
+
+const title = `Vidraçaria em Botucatu SP | ${SITE.shortName}`;
+const description = SITE.description;
+
+const yearsActive = new Date().getFullYear() - SITE.foundingYear;
 ---
 
-<Layout 
-	title="Vidraçaria em Botucatu SP | Box, Espelhos, Janelas e Envidraçamentos" 
-	description="Procurando vidraçaria em Botucatu, SP? Especialistas em box para banheiro, espelhos, janelas, portas e fechamentos de sacada. Orçamento rápido pelo WhatsApp."
->
-	<!-- Hero Section -->
-	<section class="bg-gradient-to-br from-blue-50 to-blue-100 py-20 lg:py-32">
-		<div class="container mx-auto px-4 text-center max-w-4xl">
-			<h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-blue-900 mb-6 leading-tight">
-				Soluções em Vidros e Espelhos em <span class="text-blue-600">Botucatu e Região</span>
-			</h1>
-			<p class="text-lg md:text-xl text-gray-700 mb-10 leading-relaxed">
-				Especialistas em box de banheiro, janelas, portas, guarda-corpos e envidraçamento de sacadas. 
-				Traga segurança e sofisticação para o seu ambiente com quem entende do assunto.
-			</p>
-			<div class="flex flex-col sm:flex-row justify-center gap-4">
-				<a href="https://wa.me/5514999999999" target="_blank" rel="noopener noreferrer" class="bg-green-500 hover:bg-green-600 text-white text-lg font-bold py-4 px-8 rounded-full shadow-lg transition transform hover:-translate-y-1">
-					Fazer Orçamento pelo WhatsApp
-				</a>
-				<a href="#servicos" class="bg-white hover:bg-gray-50 text-blue-700 text-lg font-bold py-4 px-8 rounded-full shadow-lg transition border border-gray-200">
-					Conheça nossos Serviços
-				</a>
-			</div>
-		</div>
-	</section>
+<Layout title={title} description={description}>
+  <section class="relative overflow-hidden bg-ink-900">
+    <Image
+      src="https://images.pexels.com/photos/18193138/pexels-photo-18193138.jpeg?auto=compress&cs=tinysrgb&w=2000"
+      alt="Fachada de vidro azul em edifício moderno, representando a qualidade dos serviços de vidraçaria"
+      width={2000}
+      height={1333}
+      loading="eager"
+      fetchpriority="high"
+      class="absolute inset-0 h-full w-full object-cover opacity-30"
+    />
+    <div class="container-page relative py-24 sm:py-32">
+      <p class="eyebrow text-brand-300">Vidraçaria em Botucatu - SP</p>
+      <h1 class="mt-3 max-w-2xl text-4xl font-bold text-white sm:text-5xl">
+        Vidros e espelhos sob medida, com instalação rápida e garantida
+      </h1>
+      <p class="mt-5 max-w-xl text-lg text-slate-200">
+        Box de banheiro, espelhos, portas de vidro, fachadas comerciais e guarda-corpo.
+        Atendemos Botucatu e região há {yearsActive} anos com orçamento sem compromisso.
+      </p>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a href={`https://wa.me/${SITE.whatsappNumber}`} target="_blank" rel="noopener" class="btn-whatsapp">
+          Peça seu orçamento no WhatsApp
+        </a>
+        <a href="/servicos" class="btn-secondary">
+          Ver todos os serviços
+        </a>
+      </div>
+    </div>
+  </section>
 
-	<!-- Services Section -->
-	<section id="servicos" class="py-20 bg-white">
-		<div class="container mx-auto px-4">
-			<div class="text-center mb-16">
-				<h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Nossos Serviços de Vidraçaria</h2>
-				<p class="text-gray-600 max-w-2xl mx-auto">
-					Trabalhamos com vidros temperados, laminados e espelhos da mais alta qualidade para atender aos projetos mais exigentes.
-				</p>
-			</div>
-			
-			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-				<!-- Service 1 -->
-				<div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-shadow">
-					<div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
-						<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
-					</div>
-					<h3 class="text-xl font-bold text-gray-800 mb-3">Box para Banheiro</h3>
-					<p class="text-gray-600">Box de vidro temperado sob medida. Modelos de correr, abrir ou elegance. Durabilidade, segurança e fácil limpeza para o seu banheiro.</p>
-				</div>
-				
-				<!-- Service 2 -->
-				<div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-shadow">
-					<div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
-						<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-					</div>
-					<h3 class="text-xl font-bold text-gray-800 mb-3">Portas e Janelas</h3>
-					<p class="text-gray-600">Instalação de portas de vidro temperado e janelas residenciais e comerciais. Maior luminosidade e modernidade para os ambientes.</p>
-				</div>
+  <section class="border-b border-ink-900/5 bg-brand-50">
+    <div class="container-page grid grid-cols-2 gap-6 py-8 text-center sm:grid-cols-4">
+      <div>
+        <p class="text-2xl font-bold text-brand-700">{yearsActive}+</p>
+        <p class="text-sm text-ink-700">Anos de experiência</p>
+      </div>
+      <div>
+        <p class="text-2xl font-bold text-brand-700">100%</p>
+        <p class="text-sm text-ink-700">Vidro temperado certificado</p>
+      </div>
+      <div>
+        <p class="text-2xl font-bold text-brand-700">7 dias</p>
+        <p class="text-sm text-ink-700">Prazo médio de instalação</p>
+      </div>
+      <div>
+        <p class="text-2xl font-bold text-brand-700">8</p>
+        <p class="text-sm text-ink-700">Cidades atendidas na região</p>
+      </div>
+    </div>
+  </section>
 
-				<!-- Service 3 -->
-				<div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-shadow">
-					<div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
-						<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"></path></svg>
-					</div>
-					<h3 class="text-xl font-bold text-gray-800 mb-3">Espelhos Sob Medida</h3>
-					<p class="text-gray-600">Espelhos cristalixos facetados (bisotê) ou com acabamento lapidado. Amplie ambientes e decore com estilo.</p>
-				</div>
-				
-				<!-- Service 4 -->
-				<div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-shadow">
-					<div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
-						<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
-					</div>
-					<h3 class="text-xl font-bold text-gray-800 mb-3">Envidraçamento de Sacadas</h3>
-					<p class="text-gray-600">Sistemas de envidraçamento para varandas e sacadas que protegem contra chuva e vento, sem perder a visão externa.</p>
-				</div>
-				
-				<!-- Service 5 -->
-				<div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-shadow">
-					<div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
-						<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path></svg>
-					</div>
-					<h3 class="text-xl font-bold text-gray-800 mb-3">Guarda-Corpo de Vidro</h3>
-					<p class="text-gray-600">Guarda-corpos em vidro temperado e laminado para escadas e sacadas. Máxima segurança seguindo rigorosas normas técnicas.</p>
-				</div>
-				
-				<!-- Service 6 -->
-				<div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-shadow">
-					<div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
-						<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
-					</div>
-					<h3 class="text-xl font-bold text-gray-800 mb-3">Manutenção e Reparos</h3>
-					<p class="text-gray-600">Fazemos manutenção em roldanas de box, regulagem de portas de correr e substituição de molas de piso.</p>
-				</div>
-			</div>
-		</div>
-	</section>
+  <section class="section">
+    <div class="container-page">
+      <p class="eyebrow">Nossos serviços</p>
+      <h2 class="mt-2 text-3xl font-bold text-ink-900">Soluções completas em vidro para sua casa ou comércio</h2>
+      <p class="mt-3 max-w-2xl text-ink-700">
+        Do box de banheiro à fachada comercial, cuidamos de todas as etapas: medição, fabricação e instalação.
+      </p>
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {SERVICES.map((service) => <ServiceCard service={service} />)}
+      </div>
+    </div>
+  </section>
 
-	<!-- Why Choose Us -->
-	<section id="sobre" class="py-20 bg-gray-50">
-		<div class="container mx-auto px-4">
-			<div class="flex flex-col lg:flex-row items-center gap-12">
-				<div class="lg:w-1/2">
-					<div class="bg-blue-600 text-white rounded-3xl p-10 shadow-2xl">
-						<h2 class="text-3xl font-bold mb-6">Por que escolher nossa vidraçaria em Botucatu?</h2>
-						<ul class="space-y-4">
-							<li class="flex items-start">
-								<svg class="w-6 h-6 text-green-400 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-								<span><strong>Materiais de Qualidade:</strong> Trabalhamos apenas com vidros e ferragens certificados e de alta durabilidade.</span>
-							</li>
-							<li class="flex items-start">
-								<svg class="w-6 h-6 text-green-400 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-								<span><strong>Equipe Especializada:</strong> Instaladores experientes que garantem um acabamento impecável.</span>
-							</li>
-							<li class="flex items-start">
-								<svg class="w-6 h-6 text-green-400 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-								<span><strong>Cumprimento de Prazos:</strong> Entregamos seu projeto no prazo combinado, respeitando sua rotina.</span>
-							</li>
-							<li class="flex items-start">
-								<svg class="w-6 h-6 text-green-400 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-								<span><strong>Atendimento em Botucatu e Região:</strong> Agilidade para visitar o local e tirar as medidas exatas.</span>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<div class="lg:w-1/2">
-					<h2 class="text-3xl font-bold text-gray-800 mb-6">Tradição e Qualidade em Serviços com Vidros</h2>
-					<p class="text-gray-700 text-lg mb-6 leading-relaxed">
-						Com vasta experiência no mercado de Botucatu, SP, nossa vidraçaria tem o compromisso de entregar projetos que aliam beleza, sofisticação e, acima de tudo, segurança.
-					</p>
-					<p class="text-gray-700 text-lg mb-8 leading-relaxed">
-						Seja para uma simples troca de vidro, a instalação de um box de banheiro elegante, ou projetos arquitetônicos complexos como fechamento de sacadas em vidro temperado, nós temos a solução ideal.
-					</p>
-					<a href="https://wa.me/5514999999999" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-blue-600 font-bold hover:text-blue-800 text-lg transition-colors">
-						Solicite um orçamento agora 
-						<svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
+  <section class="section bg-slate-50">
+    <div class="container-page grid gap-10 lg:grid-cols-2 lg:items-center">
+      <div>
+        <p class="eyebrow">Por que escolher a {SITE.shortName}</p>
+        <h2 class="mt-2 text-3xl font-bold text-ink-900">
+          Qualidade no vidro, segurança na instalação
+        </h2>
+        <ul class="mt-6 space-y-4">
+          <li class="flex gap-3">
+            <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-brand-600"></span>
+            <span class="text-ink-700"><strong class="text-ink-900">Visita técnica e medição gratuitas</strong> antes de qualquer orçamento.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-brand-600"></span>
+            <span class="text-ink-700"><strong class="text-ink-900">Vidro temperado certificado</strong>, mais resistente e seguro.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-brand-600"></span>
+            <span class="text-ink-700"><strong class="text-ink-900">Equipe própria de instalação</strong>, sem intermediários.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-brand-600"></span>
+            <span class="text-ink-700"><strong class="text-ink-900">Garantia por escrito</strong> em material e instalação.</span>
+          </li>
+        </ul>
+      </div>
+      <div class="overflow-hidden rounded-2xl">
+        <Image
+          src="https://images.pexels.com/photos/5691531/pexels-photo-5691531.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          alt="Profissional instalando vidro em residência durante reforma"
+          width={1200}
+          height={900}
+          loading="lazy"
+          class="h-full w-full object-cover"
+        />
+      </div>
+    </div>
+  </section>
 
-	<!-- CTA / Contact -->
-	<section id="contato" class="py-20 bg-blue-900 text-white text-center">
-		<div class="container mx-auto px-4 max-w-3xl">
-			<h2 class="text-3xl md:text-4xl font-bold mb-6">Precisa de um Vidraceiro em Botucatu?</h2>
-			<p class="text-xl mb-10 text-blue-200">
-				Entre em contato conosco pelo WhatsApp. O orçamento é sem compromisso e respondemos rapidamente para agendar uma visita técnica.
-			</p>
-			<div class="flex flex-col sm:flex-row justify-center items-center gap-6">
-				<a href="https://wa.me/5514999999999" target="_blank" rel="noopener noreferrer" class="bg-green-500 hover:bg-green-600 text-white text-xl font-bold py-4 px-10 rounded-full shadow-xl transition transform hover:scale-105 flex items-center">
-					<svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-					(14) 99999-9999
-				</a>
-			</div>
-		</div>
-	</section>
+  <section class="section">
+    <div class="container-page">
+      <p class="eyebrow">Área de atendimento</p>
+      <h2 class="mt-2 text-3xl font-bold text-ink-900">Atendemos Botucatu e toda a região</h2>
+      <p class="mt-3 max-w-2xl text-ink-700">
+        Realizamos visita técnica, fabricação e instalação nas seguintes cidades:
+      </p>
+      <div class="mt-6 flex flex-wrap gap-2">
+        {SITE.areaServed.map((city) => (
+          <span class="rounded-full bg-brand-50 px-4 py-2 text-sm font-medium text-brand-700">{city}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaSection />
 </Layout>

@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE } from '../data/site';
+
+const title = `Página não encontrada | ${SITE.shortName}`;
+const description = 'A página que você procura não foi encontrada. Volte à página inicial da vidraçaria em Botucatu.';
+---
+
+<Layout title={title} description={description} noindex>
+  <section class="container-page flex flex-col items-center gap-4 py-24 text-center">
+    <p class="eyebrow">Erro 404</p>
+    <h1 class="text-4xl font-bold text-ink-900">Página não encontrada</h1>
+    <p class="max-w-md text-ink-700">
+      A página que você tentou acessar não existe ou foi movida. Volte para a página inicial ou veja
+      nossos serviços.
+    </p>
+    <div class="mt-4 flex flex-col gap-3 sm:flex-row">
+      <a href="/" class="btn-primary">Voltar para o início</a>
+      <a href="/servicos" class="btn-secondary">Ver serviços</a>
+    </div>
+  </section>
+</Layout>

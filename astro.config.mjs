@@ -1,9 +1,28 @@
+// @ts-check
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
+import tailwindcss from '@tailwindcss/vite';
+
+const site = 'https://www.vidracariabotucatu.com.br';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://vidracariabotucatu.com.br', // Substituir pelo domínio final
-  integrations: [tailwind(), sitemap()]
+  site,
+  trailingSlash: 'never',
+  integrations: [
+    sitemap({
+      changefreq: 'monthly',
+      priority: 0.7,
+      lastmod: new Date(),
+    }),
+  ],
+  vite: {
+    plugins: [tailwindcss()],
+  },
+  image: {
+    domains: ['images.pexels.com'],
+  },
+  prefetch: {
+    prefetchAll: true,
+  },
 });

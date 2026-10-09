@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-brand-50: #eff8ff;
+  --color-brand-100: #dcefff;
+  --color-brand-200: #b3e0ff;
+  --color-brand-300: #7ac8ff;
+  --color-brand-400: #3aabff;
+  --color-brand-500: #0d8bf2;
+  --color-brand-600: #006ecf;
+  --color-brand-700: #0057a6;
+  --color-brand-800: #06498a;
+  --color-brand-900: #0a3e72;
+  --color-brand-950: #07264a;
+
+  --color-ink-900: #0f172a;
+  --color-ink-700: #334155;
+  --color-ink-500: #64748b;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-ink-900 antialiased;
+}
+
+.skip-link {
+  @apply sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:rounded-md focus:bg-brand-700 focus:px-4 focus:py-2 focus:text-white;
+}
+
+.container-page {
+  @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg bg-brand-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg border border-ink-900/10 bg-white px-5 py-3 text-sm font-semibold text-ink-900 shadow-sm transition hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700;
+}
+
+.btn-whatsapp {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg bg-emerald-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700;
+}
+
+.section {
+  @apply py-14 sm:py-20;
+}
+
+.eyebrow {
+  @apply text-sm font-semibold uppercase tracking-wide text-brand-600;
+}

@@ -1,0 +1,140 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { SITE } from '../data/site';
+import { breadcrumbSchema } from '../lib/schema';
+
+const title = `Contato | Vidraçaria em Botucatu SP - ${SITE.shortName}`;
+const description = `Fale com a ${SITE.shortName}: telefone, WhatsApp, endereço e horário de atendimento em Botucatu - SP. Solicite seu orçamento de vidro.`;
+
+const crumbs = [
+  { name: 'Início', path: '/' },
+  { name: 'Contato', path: '/contato' },
+];
+---
+
+<Layout title={title} description={description} jsonLd={[breadcrumbSchema(crumbs)]}>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="container-page grid gap-12 pb-20 lg:grid-cols-2">
+    <div>
+      <p class="eyebrow">Contato</p>
+      <h1 class="mt-2 text-4xl font-bold text-ink-900">Solicite seu orçamento</h1>
+      <p class="mt-4 text-ink-700">
+        Preencha o formulário e enviaremos sua solicitação direto para o nosso WhatsApp, ou entre em
+        contato pelos canais abaixo.
+      </p>
+
+      <form id="contact-form" class="mt-8 space-y-4" novalidate>
+        <div>
+          <label for="name" class="block text-sm font-medium text-ink-900">Nome</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            class="mt-1 w-full rounded-lg border border-ink-900/15 px-3 py-2.5 text-ink-900 shadow-sm focus:border-brand-600 focus:outline-none focus:ring-1 focus:ring-brand-600"
+          />
+        </div>
+        <div>
+          <label for="phone" class="block text-sm font-medium text-ink-900">Telefone / WhatsApp</label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            required
+            class="mt-1 w-full rounded-lg border border-ink-900/15 px-3 py-2.5 text-ink-900 shadow-sm focus:border-brand-600 focus:outline-none focus:ring-1 focus:ring-brand-600"
+          />
+        </div>
+        <div>
+          <label for="service" class="block text-sm font-medium text-ink-900">Serviço desejado</label>
+          <select
+            id="service"
+            name="service"
+            class="mt-1 w-full rounded-lg border border-ink-900/15 px-3 py-2.5 text-ink-900 shadow-sm focus:border-brand-600 focus:outline-none focus:ring-1 focus:ring-brand-600"
+          >
+            <option>Box de banheiro</option>
+            <option>Espelhos</option>
+            <option>Portas de vidro</option>
+            <option>Fachadas comerciais</option>
+            <option>Guarda-corpo de vidro</option>
+            <option>Vidro temperado e tampos</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div>
+          <label for="message" class="block text-sm font-medium text-ink-900">Mensagem</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            class="mt-1 w-full rounded-lg border border-ink-900/15 px-3 py-2.5 text-ink-900 shadow-sm focus:border-brand-600 focus:outline-none focus:ring-1 focus:ring-brand-600"
+            placeholder="Conte um pouco sobre o que você precisa (medidas, ambiente, prazo)..."
+          ></textarea>
+        </div>
+        <button type="submit" class="btn-whatsapp w-full sm:w-auto">
+          Enviar para o WhatsApp
+        </button>
+        <p class="text-xs text-ink-500">
+          Ao enviar, abriremos o WhatsApp com sua mensagem pronta para confirmar o envio.
+        </p>
+      </form>
+    </div>
+
+    <div class="space-y-6">
+      <div class="rounded-2xl border border-ink-900/10 p-6">
+        <h2 class="text-lg font-semibold text-ink-900">Informações de contato</h2>
+        <ul class="mt-4 space-y-3 text-sm text-ink-700">
+          <li><strong class="text-ink-900">Endereço:</strong> {SITE.address.street}, {SITE.address.neighborhood} — {SITE.address.city}/{SITE.address.state}, CEP {SITE.address.zip}</li>
+          <li><strong class="text-ink-900">Telefone:</strong> <a class="text-brand-600 hover:underline" href={`tel:${SITE.phoneE164}`}>{SITE.phoneDisplay}</a></li>
+          <li><strong class="text-ink-900">WhatsApp:</strong> <a class="text-brand-600 hover:underline" href={`https://wa.me/${SITE.whatsappNumber}`} target="_blank" rel="noopener">{SITE.whatsappDisplay}</a></li>
+          <li><strong class="text-ink-900">E-mail:</strong> <a class="text-brand-600 hover:underline" href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+        </ul>
+        <div class="mt-5 border-t border-ink-900/10 pt-5">
+          <h3 class="text-sm font-semibold text-ink-900">Horário de atendimento</h3>
+          <ul class="mt-2 space-y-1 text-sm text-ink-700">
+            {SITE.hours.map((h) => (
+              <li class="flex justify-between gap-4"><span>{h.days}</span><span>{h.time}</span></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div class="overflow-hidden rounded-2xl border border-ink-900/10">
+        <iframe
+          title={`Mapa da região de atendimento em ${SITE.address.city}`}
+          src={SITE.mapEmbedSrc}
+          width="100%"
+          height="300"
+          style="border:0"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script define:vars={{ whatsappNumber: SITE.whatsappNumber }}>
+  const form = document.getElementById('contact-form');
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const data = new FormData(form);
+    const name = data.get('name') ?? '';
+    const phone = data.get('phone') ?? '';
+    const service = data.get('service') ?? '';
+    const message = data.get('message') ?? '';
+
+    const text = [
+      `Olá! Meu nome é ${name}.`,
+      `Telefone: ${phone}`,
+      `Serviço de interesse: ${service}`,
+      message ? `Mensagem: ${message}` : null,
+    ]
+      .filter(Boolean)
+      .join('\n');
+
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank', 'noopener');
+  });
+</script>

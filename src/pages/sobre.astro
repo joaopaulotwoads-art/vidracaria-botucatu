@@ -1,0 +1,80 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CtaSection from '../components/CtaSection.astro';
+import { SITE } from '../data/site';
+import { breadcrumbSchema } from '../lib/schema';
+
+const title = `Sobre a ${SITE.shortName} | Vidraçaria em Botucatu SP`;
+const description = `Conheça a história da ${SITE.shortName}, vidraçaria em Botucatu - SP com mais de ${new Date().getFullYear() - SITE.foundingYear} anos de experiência em vidro temperado.`;
+
+const crumbs = [
+  { name: 'Início', path: '/' },
+  { name: 'Sobre', path: '/sobre' },
+];
+
+const yearsActive = new Date().getFullYear() - SITE.foundingYear;
+---
+
+<Layout title={title} description={description} jsonLd={[breadcrumbSchema(crumbs)]}>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="container-page grid gap-10 pb-16 lg:grid-cols-2 lg:items-center">
+    <div>
+      <p class="eyebrow">Sobre nós</p>
+      <h1 class="mt-2 text-4xl font-bold text-ink-900">
+        Tradição em vidro, atendimento próximo de quem mora em Botucatu
+      </h1>
+      <p class="mt-4 text-ink-700">
+        A {SITE.shortName} atua desde {SITE.foundingYear} fabricando e instalando vidro temperado para
+        residências e comércios em Botucatu e região. Ao longo de {yearsActive} anos, atendemos
+        projetos simples, como a troca de um box de banheiro, e projetos complexos, como fachadas
+        comerciais completas.
+      </p>
+      <p class="mt-4 text-ink-700">
+        Nosso diferencial é acompanhar o cliente do início ao fim: medição no local, orientação sobre o
+        tipo de vidro mais adequado, fabricação sob medida e instalação feita por equipe própria — sem
+        terceirizar a etapa mais importante do serviço.
+      </p>
+    </div>
+    <div class="overflow-hidden rounded-2xl">
+      <Image
+        src="https://images.pexels.com/photos/3137686/pexels-photo-3137686.jpeg?auto=compress&cs=tinysrgb&w=1200"
+        alt="Fachada de vidro de edifício comercial refletindo o céu, representando a área de atuação da vidraçaria"
+        width={1200}
+        height={900}
+        loading="eager"
+        class="h-full w-full object-cover"
+      />
+    </div>
+  </section>
+
+  <section class="section bg-slate-50">
+    <div class="container-page grid gap-8 sm:grid-cols-3">
+      <div class="rounded-2xl bg-white p-6 shadow-sm">
+        <h2 class="text-lg font-semibold text-ink-900">Missão</h2>
+        <p class="mt-2 text-sm text-ink-700">
+          Entregar soluções em vidro com segurança, precisão de medidas e prazo combinado, para casas e
+          comércios de Botucatu e região.
+        </p>
+      </div>
+      <div class="rounded-2xl bg-white p-6 shadow-sm">
+        <h2 class="text-lg font-semibold text-ink-900">Como trabalhamos</h2>
+        <p class="mt-2 text-sm text-ink-700">
+          Visita técnica, orçamento detalhado, fabricação sob medida e instalação por equipe própria,
+          com garantia por escrito em cada etapa.
+        </p>
+      </div>
+      <div class="rounded-2xl bg-white p-6 shadow-sm">
+        <h2 class="text-lg font-semibold text-ink-900">Onde atuamos</h2>
+        <p class="mt-2 text-sm text-ink-700">
+          Botucatu e cidades vizinhas: {SITE.areaServed.slice(0, 4).join(', ')} e outras localidades da
+          região.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CtaSection />
+</Layout>

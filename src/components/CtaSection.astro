@@ -1,0 +1,23 @@
+---
+import { SITE } from '../data/site';
+---
+
+<section class="section bg-brand-700">
+  <div class="container-page flex flex-col items-center gap-6 text-center">
+    <h2 class="text-2xl font-bold text-white sm:text-3xl">
+      Pronto para orçar seu vidro em Botucatu?
+    </h2>
+    <p class="max-w-xl text-brand-100">
+      Fale agora pelo WhatsApp e receba atendimento rápido com um especialista.
+      Visita técnica e orçamento sem compromisso.
+    </p>
+    <div class="flex flex-col gap-3 sm:flex-row">
+      <a href={`https://wa.me/${SITE.whatsappNumber}`} target="_blank" rel="noopener" class="btn-whatsapp">
+        Falar no WhatsApp
+      </a>
+      <a href={`tel:${SITE.phoneE164}`} class="btn-secondary">
+        Ligar {SITE.phoneDisplay}
+      </a>
+    </div>
+  </div>
+</section>

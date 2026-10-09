@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import CtaSection from '../../components/CtaSection.astro';
+import { SITE } from '../../data/site';
+import { SERVICES } from '../../data/services';
+import { breadcrumbSchema } from '../../lib/schema';
+
+const title = `Serviços de Vidraçaria em Botucatu SP | ${SITE.shortName}`;
+const description =
+  'Conheça todos os serviços da vidraçaria em Botucatu: box de banheiro, espelhos, portas de vidro, fachadas comerciais, guarda-corpo e vidro temperado.';
+
+const crumbs = [
+  { name: 'Início', path: '/' },
+  { name: 'Serviços', path: '/servicos' },
+];
+---
+
+<Layout title={title} description={description} jsonLd={[breadcrumbSchema(crumbs)]}>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="container-page pb-10">
+    <p class="eyebrow">Serviços</p>
+    <h1 class="mt-2 text-4xl font-bold text-ink-900">Serviços de vidraçaria em Botucatu</h1>
+    <p class="mt-3 max-w-2xl text-ink-700">
+      Trabalhamos com vidro temperado em todas as etapas, da medição à instalação.
+      Escolha o serviço desejado para ver detalhes, processo e perguntas frequentes.
+    </p>
+  </section>
+
+  <section class="container-page pb-20">
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {SERVICES.map((service) => <ServiceCard service={service} />)}
+    </div>
+  </section>
+
+  <CtaSection />
+</Layout>
