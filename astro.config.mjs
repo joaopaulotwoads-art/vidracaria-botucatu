@@ -19,9 +19,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  image: {
-    domains: ['images.pexels.com'],
-  },
   prefetch: {
     prefetchAll: true,
   },

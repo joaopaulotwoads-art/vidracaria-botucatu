@@ -5,8 +5,10 @@ import ServiceCard from '../components/ServiceCard.astro';
 import CtaSection from '../components/CtaSection.astro';
 import { SITE } from '../data/site';
 import { SERVICES } from '../data/services';
+import fachadaVidroModerna from '../assets/images/fachada-vidro-moderna-botucatu-sp.jpg';
+import instalacaoVidroResidencial from '../assets/images/instalacao-vidro-residencial-botucatu-sp.jpg';
 
-const title = `Vidraçaria em Botucatu SP | ${SITE.shortName}`;
+const title = 'Vidraçaria em Botucatu | Box, Espelhos e Vidro Temperado';
 const description = SITE.description;
 
 const yearsActive = new Date().getFullYear() - SITE.foundingYear;
@@ -15,7 +17,7 @@ const yearsActive = new Date().getFullYear() - SITE.foundingYear;
 <Layout title={title} description={description}>
   <section class="relative overflow-hidden bg-ink-900">
     <Image
-      src="https://images.pexels.com/photos/18193138/pexels-photo-18193138.jpeg?auto=compress&cs=tinysrgb&w=2000"
+      src={fachadaVidroModerna}
       alt="Fachada de vidro azul em edifício moderno, representando a qualidade dos serviços de vidraçaria"
       width={2000}
       height={1333}
@@ -58,7 +60,7 @@ const yearsActive = new Date().getFullYear() - SITE.foundingYear;
         <p class="text-sm text-ink-700">Prazo médio de instalação</p>
       </div>
       <div>
-        <p class="text-2xl font-bold text-brand-700">8</p>
+        <p class="text-2xl font-bold text-brand-700">{SITE.areaServed.length}</p>
         <p class="text-sm text-ink-700">Cidades atendidas na região</p>
       </div>
     </div>
@@ -105,7 +107,7 @@ const yearsActive = new Date().getFullYear() - SITE.foundingYear;
       </div>
       <div class="overflow-hidden rounded-2xl">
         <Image
-          src="https://images.pexels.com/photos/5691531/pexels-photo-5691531.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          src={instalacaoVidroResidencial}
           alt="Profissional instalando vidro em residência durante reforma"
           width={1200}
           height={900}

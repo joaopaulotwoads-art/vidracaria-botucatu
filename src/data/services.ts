@@ -1,3 +1,12 @@
+import type { ImageMetadata } from 'astro';
+import boxBanheiro from '../assets/images/box-banheiro-vidro-temperado-botucatu-sp.jpg';
+import espelho from '../assets/images/espelho-sob-medida-botucatu-sp.jpg';
+import portaVidro from '../assets/images/porta-vidro-temperado-botucatu-sp.jpg';
+import fachadaComercial from '../assets/images/fachada-comercial-vidro-botucatu-sp.jpg';
+import guardaCorpo from '../assets/images/guarda-corpo-vidro-escada-botucatu-sp.jpg';
+import vidroTemperadoTampo from '../assets/images/vidro-temperado-tampo-mesa-botucatu-sp.jpg';
+import envidracamentoSacada from '../assets/images/envidracamento-sacada-cortina-vidro-botucatu-sp.jpg';
+
 export type Faq = { question: string; answer: string };
 
 export type Service = {
@@ -6,7 +15,7 @@ export type Service = {
   shortTitle: string;
   metaTitle: string;
   metaDescription: string;
-  heroImage: string;
+  heroImage: ImageMetadata;
   heroImageAlt: string;
   summary: string;
   intro: string[];
@@ -20,11 +29,10 @@ export const SERVICES: Service[] = [
     slug: 'box-de-banheiro',
     title: 'Box de Banheiro em Botucatu',
     shortTitle: 'Box de Banheiro',
-    metaTitle: 'Box de Banheiro em Botucatu SP | Instalação sob Medida',
+    metaTitle: 'Box para Banheiro em Botucatu | Vidro Temperado Sob Medida',
     metaDescription:
-      'Box de banheiro sob medida em Botucatu: vidro temperado incolor, fumê ou verde, perfis de alumínio ou blindex. Medição e orçamento grátis.',
-    heroImage:
-      'https://images.pexels.com/photos/7601091/pexels-photo-7601091.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      'Box de vidro temperado sob medida em Botucatu: modelos de correr, de abrir e até o teto. Instalação profissional e orçamento rápido pelo WhatsApp.',
+    heroImage: boxBanheiro,
     heroImageAlt:
       'Box de banheiro de vidro temperado instalado em banheiro moderno com acabamento em branco',
     summary:
@@ -68,11 +76,10 @@ export const SERVICES: Service[] = [
     slug: 'espelhos',
     title: 'Espelhos Sob Medida em Botucatu',
     shortTitle: 'Espelhos',
-    metaTitle: 'Espelhos sob Medida em Botucatu SP | Vidraçaria Botucatu',
+    metaTitle: 'Espelhos Sob Medida em Botucatu | Banheiro e Decoração',
     metaDescription:
-      'Espelhos sob medida para banheiro, sala, academia e closet em Botucatu. Corte, lapidação e instalação com acabamento profissional.',
-    heroImage:
-      'https://images.pexels.com/photos/6301184/pexels-photo-6301184.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      'Espelhos sob medida em Botucatu para banheiro, sala, quarto e academia. Bisotê, LED e lapidação. Peça seu orçamento sem compromisso pelo WhatsApp.',
+    heroImage: espelho,
     heroImageAlt:
       'Espelho grande sob medida instalado acima da pia em banheiro moderno',
     summary:
@@ -111,11 +118,10 @@ export const SERVICES: Service[] = [
     slug: 'portas-de-vidro',
     title: 'Portas de Vidro em Botucatu',
     shortTitle: 'Portas de Vidro',
-    metaTitle: 'Portas de Vidro em Botucatu SP | Residencial e Comercial',
+    metaTitle: 'Portas de Vidro em Botucatu SP | Vidraçaria Botucatu',
     metaDescription:
       'Portas de vidro temperado para residências e comércios em Botucatu: pivotante, de abrir ou automática. Projeto, fabricação e instalação.',
-    heroImage:
-      'https://images.pexels.com/photos/10586212/pexels-photo-10586212.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    heroImage: portaVidro,
     heroImageAlt:
       'Entrada de prédio moderno com porta de vidro temperado e estrutura em alumínio',
     summary:
@@ -154,11 +160,10 @@ export const SERVICES: Service[] = [
     slug: 'fachadas-comerciais',
     title: 'Fachadas e Vitrines Comerciais em Botucatu',
     shortTitle: 'Fachadas Comerciais',
-    metaTitle: 'Fachadas e Vitrines de Vidro em Botucatu SP',
+    metaTitle: 'Fachadas Comerciais em Botucatu SP | Vidraçaria Botucatu',
     metaDescription:
       'Fachadas comerciais e vitrines de vidro em Botucatu para lojas, clínicas e escritórios. Projeto, fabricação e instalação com garantia.',
-    heroImage:
-      'https://images.pexels.com/photos/5021939/pexels-photo-5021939.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    heroImage: fachadaComercial,
     heroImageAlt:
       'Fachada comercial com vitrine de vidro e estrutura de alumínio em loja de rua',
     summary:
@@ -197,11 +202,10 @@ export const SERVICES: Service[] = [
     slug: 'guarda-corpo-de-vidro',
     title: 'Guarda-Corpo de Vidro em Botucatu',
     shortTitle: 'Guarda-Corpo de Vidro',
-    metaTitle: 'Guarda-Corpo de Vidro em Botucatu SP | Sacadas e Escadas',
+    metaTitle: 'Guarda-Corpo de Vidro em Botucatu | Escadas e Sacadas',
     metaDescription:
-      'Guarda-corpo de vidro temperado para sacadas, escadas e piscinas em Botucatu, com estrutura em alumínio ou inox e fixação certificada.',
-    heroImage:
-      'https://images.pexels.com/photos/37140573/pexels-photo-37140573.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      'Guarda-corpo de vidro temperado ou laminado em Botucatu para escadas, sacadas e mezaninos. Segurança e acabamento moderno. Orçamento pelo WhatsApp.',
+    heroImage: guardaCorpo,
     heroImageAlt:
       'Escada moderna com guarda-corpo de vidro temperado e estrutura metálica',
     summary:
@@ -237,14 +241,60 @@ export const SERVICES: Service[] = [
     ],
   },
   {
+    slug: 'envidracamento-de-sacada',
+    title: 'Envidraçamento de Sacada em Botucatu',
+    shortTitle: 'Envidraçamento de Sacada',
+    metaTitle: 'Envidraçamento de Sacada em Botucatu | Cortina de Vidro',
+    metaDescription:
+      'Envidraçamento de sacada em Botucatu com cortina de vidro temperado. Proteção contra vento, chuva e poeira sem perder a vista. Solicite seu orçamento.',
+    heroImage: envidracamentoSacada,
+    heroImageAlt:
+      'Ambiente envidraçado com painéis de vidro do piso ao teto e vista para área externa arborizada',
+    summary:
+      'Cortina de vidro para sacadas e varandas, com proteção contra vento, chuva e poeira sem perder a vista.',
+    intro: [
+      'O envidraçamento de sacada fecha o espaço com vidro temperado sem obstruir a vista, protegendo a sacada contra vento, chuva, poeira e barulho externo. É uma das soluções mais procuradas para ganhar um ambiente extra em apartamentos e casas.',
+      'Trabalhamos com sistemas de cortina de vidro retrátil (de correr) ou vidro fixo, em estrutura com ou sem perfil de alumínio, conforme o projeto da sacada e o regulamento do condomínio.',
+    ],
+    benefits: [
+      'Cortina de vidro retrátil, abre totalmente para dias de sol',
+      'Vidro temperado incolor para manter a vista livre',
+      'Reduz entrada de vento, chuva, poeira e barulho da rua',
+      'Trilhos em alumínio com baixo atrito e fácil deslizamento',
+      'Projeto conforme as normas e o regulamento do condomínio',
+    ],
+    process: [
+      { title: 'Visita técnica', description: 'Medimos a sacada e avaliamos o regulamento do condomínio, quando aplicável.' },
+      { title: 'Orçamento e projeto', description: 'Definimos o sistema de abertura e enviamos o orçamento detalhado.' },
+      { title: 'Fabricação', description: 'O vidro temperado é cortado e os trilhos preparados sob medida para a sacada.' },
+      { title: 'Instalação', description: 'Instalamos os painéis e testamos o deslizamento e a vedação antes da entrega.' },
+    ],
+    faqs: [
+      {
+        question: 'O envidraçamento de sacada precisa de aprovação do condomínio?',
+        answer:
+          'Na maioria dos condomínios sim, é preciso seguir o padrão definido em assembleia. Ajudamos a adequar o projeto às normas antes da instalação.',
+      },
+      {
+        question: 'É possível abrir totalmente a sacada depois de envidraçada?',
+        answer:
+          'Sim. Com o sistema de cortina de vidro retrátil, os painéis deslizam e se recolhem lateralmente, liberando a abertura quase por completo.',
+      },
+      {
+        question: 'O vidro da sacada embaça ou acumula água da chuva?',
+        answer:
+          'Não quando a instalação é bem feita. Usamos trilhos com pingadeira e vedação adequada para escoar a água e evitar infiltração.',
+      },
+    ],
+  },
+  {
     slug: 'vidro-temperado',
     title: 'Vidro Temperado e Tampos em Botucatu',
     shortTitle: 'Vidro Temperado e Tampos',
-    metaTitle: 'Vidro Temperado e Tampos de Mesa em Botucatu SP',
+    metaTitle: 'Vidro Temperado em Botucatu | Portas, Janelas e Tampos',
     metaDescription:
-      'Vidro temperado sob medida em Botucatu para tampos de mesa, pias, prateleiras e divisórias. Corte, lapidação e entrega rápida.',
-    heroImage:
-      'https://images.pexels.com/photos/269252/pexels-photo-269252.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      'Vidro temperado sob medida em Botucatu: portas, janelas, divisórias e tampos. Mais resistência e segurança para sua casa ou empresa. Fale conosco.',
+    heroImage: vidroTemperadoTampo,
     heroImageAlt:
       'Mesa com tampo de vidro temperado e estrutura metálica em ambiente moderno',
     summary:

@@ -5,6 +5,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import CtaSection from '../components/CtaSection.astro';
 import { SITE } from '../data/site';
 import { breadcrumbSchema } from '../lib/schema';
+import sobreVidracariaFachada from '../assets/images/sobre-vidracaria-fachada-botucatu-sp.jpg';
 
 const title = `Sobre a ${SITE.shortName} | Vidraçaria em Botucatu SP`;
 const description = `Conheça a história da ${SITE.shortName}, vidraçaria em Botucatu - SP com mais de ${new Date().getFullYear() - SITE.foundingYear} anos de experiência em vidro temperado.`;
@@ -40,7 +41,7 @@ const yearsActive = new Date().getFullYear() - SITE.foundingYear;
     </div>
     <div class="overflow-hidden rounded-2xl">
       <Image
-        src="https://images.pexels.com/photos/3137686/pexels-photo-3137686.jpeg?auto=compress&cs=tinysrgb&w=1200"
+        src={sobreVidracariaFachada}
         alt="Fachada de vidro de edifício comercial refletindo o céu, representando a área de atuação da vidraçaria"
         width={1200}
         height={900}

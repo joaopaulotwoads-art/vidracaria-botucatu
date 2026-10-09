@@ -25,12 +25,13 @@ const crumbs = [
 ];
 
 const otherServices = SERVICES.filter((s) => s.slug !== service.slug).slice(0, 3);
+const ogImage = new URL(service.heroImage.src, SITE.url).toString();
 ---
 
 <Layout
   title={service.metaTitle}
   description={service.metaDescription}
-  image={service.heroImage}
+  image={ogImage}
   jsonLd={[breadcrumbSchema(crumbs), serviceSchema(service), faqSchema(service.faqs)]}
 >
   <Breadcrumbs items={crumbs} />
