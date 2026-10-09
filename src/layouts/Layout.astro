@@ -12,9 +12,10 @@ interface Props {
   image?: string;
   noindex?: boolean;
   jsonLd?: Record<string, unknown>[];
+  whatsappMessage?: string;
 }
 
-const { title, description, image, noindex, jsonLd = [] } = Astro.props;
+const { title, description, image, noindex, jsonLd = [], whatsappMessage } = Astro.props;
 ---
 
 <!doctype html>
@@ -35,7 +36,7 @@ const { title, description, image, noindex, jsonLd = [] } = Astro.props;
   </head>
   <body>
     <a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
-    <Header />
+    <Header whatsappMessage={whatsappMessage} />
     <main id="conteudo">
       <slot />
     </main>

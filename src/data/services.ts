@@ -38,7 +38,7 @@ export const SERVICES: Service[] = [
     summary:
       'Box de vidro temperado sob medida, com instalação rápida e vedação que evita vazamento de água.',
     intro: [
-      'O box de banheiro é o acabamento que mais valoriza a reforma do banheiro. Trabalhamos com vidro temperado de 8mm, testado e certificado, cortado sob medida para o seu espaço — sem folgas, sem vazamento e com acabamento profissional.',
+      'O box de banheiro é o acabamento que mais valoriza a reforma do banheiro. Trabalhamos com vidro temperado de 8mm, testado e certificado, cortado sob medida para o seu espaço, sem folgas, sem vazamento e com acabamento profissional.',
       'Atendemos Botucatu e região com visita técnica para medição, projeto do box (de abrir, correr ou fixo) e instalação em até 7 dias após o fechamento do pedido.',
     ],
     benefits: [
@@ -85,7 +85,7 @@ export const SERVICES: Service[] = [
     summary:
       'Espelhos cortados e lapidados sob medida para banheiro, sala, academia, closet e salões.',
     intro: [
-      'Fabricamos e instalamos espelhos sob medida para qualquer ambiente: banheiros, salas, academias, estúdios de dança, salões de beleza e closets. Cortamos no formato que você precisar — retangular, redondo, oval ou com bordas lapidadas.',
+      'Fabricamos e instalamos espelhos sob medida para qualquer ambiente: banheiros, salas, academias, estúdios de dança, salões de beleza e closets. Cortamos no formato que você precisar: retangular, redondo, oval ou com bordas lapidadas.',
       'Trabalhamos com espelhos de diferentes espessuras e acabamentos, incluindo bordas polidas, chanfradas ou com friso decorativo.',
     ],
     benefits: [
@@ -147,7 +147,7 @@ export const SERVICES: Service[] = [
       {
         question: 'Qual a espessura ideal para uma porta de vidro?',
         answer:
-          'Para portas pivotantes residenciais e comerciais, recomendamos vidro temperado de 10mm. Para portas menores ou internas, 8mm pode ser suficiente — avaliamos isso na visita técnica.',
+          'Para portas pivotantes residenciais e comerciais, recomendamos vidro temperado de 10mm. Para portas menores ou internas, 8mm pode ser suficiente. Avaliamos isso na visita técnica.',
       },
       {
         question: 'Vocês instalam portas automáticas de vidro?',

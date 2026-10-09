@@ -4,32 +4,21 @@ import type { Service, Faq } from '../data/services';
 export function localBusinessSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': ['HomeAndConstructionBusiness', 'LocalBusiness'],
+    '@type': 'HomeAndConstructionBusiness',
     '@id': `${SITE.url}/#business`,
     name: SITE.shortName,
-    legalName: SITE.legalName,
+    // TODO: legalName, address, geo, email e sameAs foram removidos daqui porque
+    // ainda são dados de exemplo em src/data/site.ts. Readicione estes campos
+    // (lendo de SITE.legalName / SITE.address / SITE.geo / SITE.email / SITE.social)
+    // assim que o cliente confirmar que são idênticos ao Google Business Profile.
     description: SITE.description,
-    url: SITE.url,
+    url: `${SITE.url}/`,
     telephone: SITE.phoneE164,
-    email: SITE.email,
     priceRange: SITE.priceRange,
+    logo: `${SITE.url}/apple-touch-icon.png`,
     image: `${SITE.url}/og-default.jpg`,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: SITE.address.street,
-      addressLocality: SITE.address.city,
-      addressRegion: SITE.address.state,
-      postalCode: SITE.address.zip,
-      addressCountry: 'BR',
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: SITE.geo.lat,
-      longitude: SITE.geo.lng,
-    },
     areaServed: SITE.areaServed.map((city) => ({ '@type': 'City', name: city })),
     openingHoursSpecification: SITE.openingHoursSpecification,
-    sameAs: [SITE.social.instagram, SITE.social.facebook],
   };
 }
 

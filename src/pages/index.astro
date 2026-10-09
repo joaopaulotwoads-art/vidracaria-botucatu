@@ -5,6 +5,7 @@ import ServiceCard from '../components/ServiceCard.astro';
 import CtaSection from '../components/CtaSection.astro';
 import { SITE } from '../data/site';
 import { SERVICES } from '../data/services';
+import { waLink, DEFAULT_WHATSAPP_MESSAGE } from '../lib/whatsapp';
 import fachadaVidroModerna from '../assets/images/fachada-vidro-moderna-botucatu-sp.jpg';
 import instalacaoVidroResidencial from '../assets/images/instalacao-vidro-residencial-botucatu-sp.jpg';
 
@@ -14,7 +15,7 @@ const description = SITE.description;
 const yearsActive = new Date().getFullYear() - SITE.foundingYear;
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} whatsappMessage={DEFAULT_WHATSAPP_MESSAGE}>
   <section class="relative overflow-hidden bg-ink-900">
     <Image
       src={fachadaVidroModerna}
@@ -35,7 +36,7 @@ const yearsActive = new Date().getFullYear() - SITE.foundingYear;
         Atendemos Botucatu e região há {yearsActive} anos com orçamento sem compromisso.
       </p>
       <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-        <a href={`https://wa.me/${SITE.whatsappNumber}`} target="_blank" rel="noopener" class="btn-whatsapp">
+        <a href={waLink(DEFAULT_WHATSAPP_MESSAGE)} target="_blank" rel="noopener" class="btn-whatsapp">
           Peça seu orçamento no WhatsApp
         </a>
         <a href="/servicos" class="btn-secondary">
@@ -133,5 +134,5 @@ const yearsActive = new Date().getFullYear() - SITE.foundingYear;
     </div>
   </section>
 
-  <CtaSection />
+  <CtaSection whatsappMessage={DEFAULT_WHATSAPP_MESSAGE} />
 </Layout>

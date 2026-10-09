@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { SITE } from '../data/site';
 import { breadcrumbSchema } from '../lib/schema';
+import { waLink, DEFAULT_WHATSAPP_MESSAGE } from '../lib/whatsapp';
 
 const title = 'Contato e Orçamento | Vidraçaria Botucatu';
 const description =
@@ -14,7 +15,7 @@ const crumbs = [
 ];
 ---
 
-<Layout title={title} description={description} jsonLd={[breadcrumbSchema(crumbs)]}>
+<Layout title={title} description={description} whatsappMessage={DEFAULT_WHATSAPP_MESSAGE} jsonLd={[breadcrumbSchema(crumbs)]}>
   <Breadcrumbs items={crumbs} />
 
   <section class="container-page grid gap-12 pb-20 lg:grid-cols-2">
@@ -86,10 +87,9 @@ const crumbs = [
       <div class="rounded-2xl border border-ink-900/10 p-6">
         <h2 class="text-lg font-semibold text-ink-900">Informações de contato</h2>
         <ul class="mt-4 space-y-3 text-sm text-ink-700">
-          <li><strong class="text-ink-900">Endereço:</strong> {SITE.address.street}, {SITE.address.neighborhood} — {SITE.address.city}/{SITE.address.state}, CEP {SITE.address.zip}</li>
+          <li><strong class="text-ink-900">Endereço:</strong> {SITE.address.street}, {SITE.address.neighborhood}, {SITE.address.city}/{SITE.address.state}, CEP {SITE.address.zip}</li>
           <li><strong class="text-ink-900">Telefone:</strong> <a class="text-brand-600 hover:underline" href={`tel:${SITE.phoneE164}`}>{SITE.phoneDisplay}</a></li>
-          <li><strong class="text-ink-900">WhatsApp:</strong> <a class="text-brand-600 hover:underline" href={`https://wa.me/${SITE.whatsappNumber}`} target="_blank" rel="noopener">{SITE.whatsappDisplay}</a></li>
-          <li><strong class="text-ink-900">E-mail:</strong> <a class="text-brand-600 hover:underline" href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+          <li><strong class="text-ink-900">WhatsApp:</strong> <a class="text-brand-600 hover:underline" href={waLink(DEFAULT_WHATSAPP_MESSAGE)} target="_blank" rel="noopener">{SITE.whatsappDisplay}</a></li>
         </ul>
         <div class="mt-5 border-t border-ink-900/10 pt-5">
           <h3 class="text-sm font-semibold text-ink-900">Horário de atendimento</h3>

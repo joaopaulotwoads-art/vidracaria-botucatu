@@ -6,12 +6,19 @@ export const SITE = {
   shortName: 'Vidraçaria Botucatu',
   tagline: 'Vidros e espelhos sob medida em Botucatu - SP',
   description:
-    'Vidraçaria em Botucatu-SP: box para banheiro, espelhos, sacadas e vidro temperado sob medida. Orçamento grátis pelo WhatsApp. Atendemos toda a região.',
+    'Vidraçaria em Botucatu-SP: box para banheiro, espelhos, sacadas e vidro temperado sob medida. Orçamento pelo WhatsApp. Atendemos toda a região.',
   url: 'https://www.vidracariabotucatu.com.br',
   phoneDisplay: '(14) 98165-1674',
   phoneE164: '+5514981651674',
   whatsappDisplay: '(14) 98165-1674',
   whatsappNumber: '5514981651674',
+  // TODO: legalName, email, address e geo abaixo ainda são dados de exemplo
+  // (não confirmados pelo cliente). Por isso NÃO são incluídos no schema.org
+  // LocalBusiness (src/lib/schema.ts) — só volte a adicioná-los lá depois de
+  // confirmar que são idênticos ao Google Business Profile real.
+  // O endereço voltou a aparecer na UI (rodapé, /contato) a pedido do
+  // cliente — troque pelo endereço real antes de publicar. O e-mail
+  // continua removido da UI até ter um e-mail real confirmado.
   email: 'contato@vidracariabotucatu.com.br',
   address: {
     street: 'Rua Amando de Barros, 1255',
@@ -45,7 +52,7 @@ export const SITE = {
     },
   ],
   foundingYear: 2009,
-  priceRange: '$$',
+  priceRange: 'R$$',
   areaServed: [
     'Botucatu',
     'Pardinho',

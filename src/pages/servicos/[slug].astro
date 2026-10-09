@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
@@ -8,6 +8,7 @@ import ServiceCard from '../../components/ServiceCard.astro';
 import { SITE } from '../../data/site';
 import { SERVICES } from '../../data/services';
 import { breadcrumbSchema, serviceSchema, faqSchema } from '../../lib/schema';
+import { waLink, serviceWhatsappMessage } from '../../lib/whatsapp';
 
 export function getStaticPaths() {
   return SERVICES.map((service) => ({
@@ -25,13 +26,16 @@ const crumbs = [
 ];
 
 const otherServices = SERVICES.filter((s) => s.slug !== service.slug).slice(0, 3);
-const ogImage = new URL(service.heroImage.src, SITE.url).toString();
+const ogImageResult = await getImage({ src: service.heroImage, width: 1200, height: 630, fit: 'cover' });
+const ogImage = new URL(ogImageResult.src, SITE.url).toString();
+const whatsappMessage = serviceWhatsappMessage(service.shortTitle);
 ---
 
 <Layout
   title={service.metaTitle}
   description={service.metaDescription}
   image={ogImage}
+  whatsappMessage={whatsappMessage}
   jsonLd={[breadcrumbSchema(crumbs), serviceSchema(service), faqSchema(service.faqs)]}
 >
   <Breadcrumbs items={crumbs} />
@@ -42,7 +46,7 @@ const ogImage = new URL(service.heroImage.src, SITE.url).toString();
       <h1 class="mt-2 text-4xl font-bold text-ink-900">{service.title}</h1>
       <p class="mt-4 text-lg text-ink-700">{service.summary}</p>
       <div class="mt-6 flex flex-col gap-3 sm:flex-row">
-        <a href={`https://wa.me/${SITE.whatsappNumber}`} target="_blank" rel="noopener" class="btn-whatsapp">
+        <a href={waLink(whatsappMessage)} target="_blank" rel="noopener" class="btn-whatsapp">
           Solicitar orçamento
         </a>
         <a href="/servicos" class="btn-secondary">Ver outros serviços</a>
@@ -117,5 +121,5 @@ const ogImage = new URL(service.heroImage.src, SITE.url).toString();
     </div>
   </section>
 
-  <CtaSection />
+  <CtaSection whatsappMessage={whatsappMessage} />
 </Layout>

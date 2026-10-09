@@ -1,5 +1,11 @@
 ---
 import { SITE, NAV_LINKS } from '../data/site';
+import { waLink, DEFAULT_WHATSAPP_MESSAGE } from '../lib/whatsapp';
+
+interface Props {
+  whatsappMessage?: string;
+}
+const { whatsappMessage = DEFAULT_WHATSAPP_MESSAGE } = Astro.props;
 
 const currentPath = new URL(Astro.request.url).pathname.replace(/\/$/, '') || '/';
 ---
@@ -34,7 +40,7 @@ const currentPath = new URL(Astro.request.url).pathname.replace(/\/$/, '') || '/
     </nav>
 
     <div class="hidden md:block">
-      <a href={`https://wa.me/${SITE.whatsappNumber}`} class="btn-whatsapp" target="_blank" rel="noopener">
+      <a href={waLink(whatsappMessage)} class="btn-whatsapp" target="_blank" rel="noopener">
         Peça seu orçamento
       </a>
     </div>
@@ -60,7 +66,7 @@ const currentPath = new URL(Astro.request.url).pathname.replace(/\/$/, '') || '/
           {link.label}
         </a>
       ))}
-      <a href={`https://wa.me/${SITE.whatsappNumber}`} class="btn-whatsapp mt-2" target="_blank" rel="noopener">
+      <a href={waLink(whatsappMessage)} class="btn-whatsapp mt-2" target="_blank" rel="noopener">
         Peça seu orçamento
       </a>
     </div>

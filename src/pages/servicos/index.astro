@@ -6,6 +6,7 @@ import CtaSection from '../../components/CtaSection.astro';
 import { SITE } from '../../data/site';
 import { SERVICES } from '../../data/services';
 import { breadcrumbSchema } from '../../lib/schema';
+import { DEFAULT_WHATSAPP_MESSAGE } from '../../lib/whatsapp';
 
 const title = `Serviços de Vidraçaria em Botucatu SP | ${SITE.shortName}`;
 const description =
@@ -17,7 +18,7 @@ const crumbs = [
 ];
 ---
 
-<Layout title={title} description={description} jsonLd={[breadcrumbSchema(crumbs)]}>
+<Layout title={title} description={description} whatsappMessage={DEFAULT_WHATSAPP_MESSAGE} jsonLd={[breadcrumbSchema(crumbs)]}>
   <Breadcrumbs items={crumbs} />
 
   <section class="container-page pb-10">
@@ -30,10 +31,11 @@ const crumbs = [
   </section>
 
   <section class="container-page pb-20">
+    <h2 class="sr-only">Nossos serviços de vidraçaria em Botucatu</h2>
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {SERVICES.map((service) => <ServiceCard service={service} />)}
     </div>
   </section>
 
-  <CtaSection />
+  <CtaSection whatsappMessage={DEFAULT_WHATSAPP_MESSAGE} />
 </Layout>

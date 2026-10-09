@@ -5,6 +5,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import CtaSection from '../components/CtaSection.astro';
 import { SITE } from '../data/site';
 import { breadcrumbSchema } from '../lib/schema';
+import { DEFAULT_WHATSAPP_MESSAGE } from '../lib/whatsapp';
 import sobreVidracariaFachada from '../assets/images/sobre-vidracaria-fachada-botucatu-sp.jpg';
 
 const title = `Sobre a ${SITE.shortName} | Vidraçaria em Botucatu SP`;
@@ -18,7 +19,7 @@ const crumbs = [
 const yearsActive = new Date().getFullYear() - SITE.foundingYear;
 ---
 
-<Layout title={title} description={description} jsonLd={[breadcrumbSchema(crumbs)]}>
+<Layout title={title} description={description} whatsappMessage={DEFAULT_WHATSAPP_MESSAGE} jsonLd={[breadcrumbSchema(crumbs)]}>
   <Breadcrumbs items={crumbs} />
 
   <section class="container-page grid gap-10 pb-16 lg:grid-cols-2 lg:items-center">
@@ -35,7 +36,7 @@ const yearsActive = new Date().getFullYear() - SITE.foundingYear;
       </p>
       <p class="mt-4 text-ink-700">
         Nosso diferencial é acompanhar o cliente do início ao fim: medição no local, orientação sobre o
-        tipo de vidro mais adequado, fabricação sob medida e instalação feita por equipe própria — sem
+        tipo de vidro mais adequado, fabricação sob medida e instalação feita por equipe própria, sem
         terceirizar a etapa mais importante do serviço.
       </p>
     </div>
@@ -77,5 +78,5 @@ const yearsActive = new Date().getFullYear() - SITE.foundingYear;
     </div>
   </section>
 
-  <CtaSection />
+  <CtaSection whatsappMessage={DEFAULT_WHATSAPP_MESSAGE} />
 </Layout>

@@ -1,5 +1,11 @@
 ---
 import { SITE } from '../data/site';
+import { waLink, DEFAULT_WHATSAPP_MESSAGE } from '../lib/whatsapp';
+
+interface Props {
+  whatsappMessage?: string;
+}
+const { whatsappMessage = DEFAULT_WHATSAPP_MESSAGE } = Astro.props;
 ---
 
 <section class="section bg-brand-700">
@@ -12,7 +18,7 @@ import { SITE } from '../data/site';
       Visita técnica e orçamento sem compromisso.
     </p>
     <div class="flex flex-col gap-3 sm:flex-row">
-      <a href={`https://wa.me/${SITE.whatsappNumber}`} target="_blank" rel="noopener" class="btn-whatsapp">
+      <a href={waLink(whatsappMessage)} target="_blank" rel="noopener" class="btn-whatsapp">
         Falar no WhatsApp
       </a>
       <a href={`tel:${SITE.phoneE164}`} class="btn-secondary">
