@@ -1,6 +1,41 @@
 {
   "redirects": [
     {
+      "source": "/servicos/box-de-banheiro",
+      "destination": "/box-de-banheiro",
+      "permanent": true
+    },
+    {
+      "source": "/servicos/espelhos",
+      "destination": "/espelhos",
+      "permanent": true
+    },
+    {
+      "source": "/servicos/portas-de-vidro",
+      "destination": "/portas-de-vidro",
+      "permanent": true
+    },
+    {
+      "source": "/servicos/fachadas-comerciais",
+      "destination": "/fachadas-comerciais",
+      "permanent": true
+    },
+    {
+      "source": "/servicos/guarda-corpo-de-vidro",
+      "destination": "/guarda-corpo-de-vidro",
+      "permanent": true
+    },
+    {
+      "source": "/servicos/envidracamento-de-sacada",
+      "destination": "/envidracamento-de-sacada",
+      "permanent": true
+    },
+    {
+      "source": "/servicos/vidro-temperado",
+      "destination": "/vidro-temperado",
+      "permanent": true
+    },
+    {
       "source": "/servicos/cobertura-de-vidro",
       "destination": "/cobertura-de-vidro",
       "permanent": true
