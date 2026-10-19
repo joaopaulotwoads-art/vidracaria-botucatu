@@ -48,7 +48,7 @@ const currentPath = new URL(Astro.request.url).pathname.replace(/\/$/, '') || '/
     <button
       id="menu-toggle"
       type="button"
-      class="inline-flex items-center justify-center rounded-md p-2 text-ink-900 md:hidden"
+      class="inline-flex h-11 w-11 items-center justify-center rounded-md text-ink-900 md:hidden"
       aria-expanded="false"
       aria-controls="mobile-menu"
       aria-label="Abrir menu"
@@ -62,7 +62,7 @@ const currentPath = new URL(Astro.request.url).pathname.replace(/\/$/, '') || '/
   <nav id="mobile-menu" aria-label="Navegação móvel" class="hidden border-t border-ink-900/5 bg-white md:hidden">
     <div class="container-page flex flex-col gap-1 py-3">
       {NAV_LINKS.map((link) => (
-        <a href={link.href} class="rounded-md px-2 py-2 text-sm font-medium text-ink-700 hover:bg-slate-50">
+        <a href={link.href} class="flex items-center rounded-md px-2 py-3 text-sm font-medium text-ink-700 hover:bg-slate-50">
           {link.label}
         </a>
       ))}

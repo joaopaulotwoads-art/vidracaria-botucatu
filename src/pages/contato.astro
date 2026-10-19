@@ -34,6 +34,7 @@ const crumbs = [
             id="name"
             name="name"
             type="text"
+            autocomplete="name"
             required
             class="mt-1 w-full rounded-lg border border-ink-900/15 px-3 py-2.5 text-ink-900 shadow-sm focus:border-brand-600 focus:outline-none focus:ring-1 focus:ring-brand-600"
           />
@@ -44,6 +45,8 @@ const crumbs = [
             id="phone"
             name="phone"
             type="tel"
+            inputmode="tel"
+            autocomplete="tel"
             required
             class="mt-1 w-full rounded-lg border border-ink-900/15 px-3 py-2.5 text-ink-900 shadow-sm focus:border-brand-600 focus:outline-none focus:ring-1 focus:ring-brand-600"
           />
@@ -63,6 +66,10 @@ const crumbs = [
             <option>Envidraçamento de sacada</option>
             <option>Cobertura de vidro</option>
             <option>Vidro temperado e tampos</option>
+            <option>Janelas de vidro</option>
+            <option>Esquadrias de alumínio</option>
+            <option>Parede de vidro</option>
+            <option>Manutenção de box</option>
             <option>Outro</option>
           </select>
         </div>
@@ -73,7 +80,7 @@ const crumbs = [
             name="message"
             rows="4"
             class="mt-1 w-full rounded-lg border border-ink-900/15 px-3 py-2.5 text-ink-900 shadow-sm focus:border-brand-600 focus:outline-none focus:ring-1 focus:ring-brand-600"
-            placeholder="Conte um pouco sobre o que você precisa (medidas, ambiente, prazo)..."
+            placeholder="Conte um pouco sobre o que você precisa (medidas, ambiente, prazo)…"
           ></textarea>
         </div>
         <button type="submit" class="btn-whatsapp w-full sm:w-auto">
