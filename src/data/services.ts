@@ -39,7 +39,7 @@ export const SERVICES: Service[] = [
     summary:
       'Box de vidro temperado sob medida, com instalação rápida e vedação que evita vazamento de água.',
     intro: [
-      'O box de banheiro é o acabamento que mais valoriza a reforma do banheiro. Trabalhamos com vidro temperado de 8mm, testado e certificado, cortado sob medida para o seu espaço, sem folgas, sem vazamento e com acabamento profissional.',
+      'O box de banheiro é o acabamento que mais valoriza a reforma do banheiro. Trabalhamos com vidro temperado de 8mm, de fornecedor com procedência, cortado sob medida para o seu espaço, sem folgas, sem vazamento e com acabamento profissional.',
       'Atendemos Botucatu e região com visita técnica para medição, projeto do box (de abrir, correr ou fixo) e instalação em até 7 dias após o fechamento do pedido.',
       'Se você está reformando o banheiro, também fabricamos <a href="/espelhos/" class="font-semibold text-brand-600 hover:underline">espelhos sob medida</a> e outras peças em <a href="/vidro-temperado/" class="font-semibold text-brand-600 hover:underline">vidro temperado</a> para completar o ambiente.',
     ],
@@ -182,7 +182,7 @@ export const SERVICES: Service[] = [
       'Vidro temperado com espessuras de 8mm a 12mm',
       'Estrutura em alumínio nas cores padrão ou sob medida',
       'Película de proteção solar e controle de luminosidade',
-      'Instalação com equipe própria e garantia por escrito',
+      'Instalação feita pelo próprio vidraceiro, com garantia por escrito',
     ],
     process: [
       { title: 'Visita e projeto', description: 'Visitamos o local, tiramos medidas e elaboramos o projeto da fachada ou vitrine.' },
@@ -214,7 +214,7 @@ export const SERVICES: Service[] = [
     heroImageAlt:
       'Sacada de casa com guarda-corpo de vidro temperado e estrutura em alumínio branco',
     summary:
-      'Guarda-corpo de vidro temperado para sacadas, escadas e piscinas, com fixação segura e certificada.',
+      'Guarda-corpo de vidro temperado para sacadas, escadas e piscinas, com fixação segura e dimensionada conforme a norma técnica.',
     intro: [
       'O guarda-corpo de vidro traz segurança sem bloquear a vista, sendo ideal para sacadas, escadas, mezaninos e áreas de piscina. Utilizamos vidro temperado laminado, com espessura e fixação dimensionadas conforme a norma técnica de cada aplicação.',
       'Projetamos o guarda-corpo com perfil de alumínio, inox ou fixação por sapatas, de acordo com o estilo do seu projeto.',

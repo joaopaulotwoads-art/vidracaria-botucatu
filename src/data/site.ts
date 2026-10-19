@@ -2,7 +2,7 @@
 // (nome exato, endereço, telefone e CNPJ devem ser IDÊNTICOS aos do Google Business Profile).
 export const SITE = {
   name: 'Vidraçaria Botucatu',
-  legalName: 'Vidraçaria Botucatu Vidros e Espelhos Ltda',
+  legalName: 'Vidraçaria Botucatu',
   shortName: 'Vidraçaria Botucatu',
   tagline: 'Vidros e espelhos sob medida em Botucatu - SP',
   description:
@@ -12,12 +12,12 @@ export const SITE = {
   phoneE164: '+5514981651674',
   whatsappDisplay: '(14) 98165-1674',
   whatsappNumber: '5514981651674',
-  // TODO: legalName, email, address e geo abaixo ainda são dados de exemplo
-  // (não confirmados pelo cliente). Por isso NÃO são incluídos no schema.org
+  // TODO: email, address e geo abaixo ainda são dados de exemplo (não
+  // confirmados pelo cliente). Por isso NÃO são incluídos no schema.org
   // LocalBusiness (src/lib/schema.ts) — só volte a adicioná-los lá depois de
-  // confirmar que são idênticos ao Google Business Profile real.
-  // O endereço voltou a aparecer na UI (rodapé, /contato) a pedido do
-  // cliente — troque pelo endereço real antes de publicar. O e-mail
+  // confirmar que são idênticos ao Google Business Profile real. O cliente
+  // confirmou que não há endereço físico para visitação (atende só por
+  // área), por isso o endereço de rua também não aparece na UI. O e-mail
   // continua removido da UI até ter um e-mail real confirmado.
   email: 'contato@vidracariabotucatu.com.br',
   address: {
@@ -51,7 +51,7 @@ export const SITE = {
       closes: '12:00',
     },
   ],
-  foundingYear: 2009,
+  experienceYears: 15,
   priceRange: 'R$$',
   areaServed: [
     'Botucatu',

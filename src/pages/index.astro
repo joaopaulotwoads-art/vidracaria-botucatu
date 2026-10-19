@@ -12,7 +12,7 @@ import instalacaoVidroResidencial from '../assets/images/instalacao-vidro-reside
 const title = 'Vidraçaria em Botucatu | Box, Espelhos e Vidro Temperado';
 const description = SITE.description;
 
-const yearsActive = new Date().getFullYear() - SITE.foundingYear;
+const experienceYears = SITE.experienceYears;
 ---
 
 <Layout title={title} description={description} whatsappMessage={DEFAULT_WHATSAPP_MESSAGE}>
@@ -35,7 +35,7 @@ const yearsActive = new Date().getFullYear() - SITE.foundingYear;
       </p>
       <p class="mt-5 max-w-xl text-lg text-slate-200">
         Box de banheiro, espelhos, portas de vidro, fachadas comerciais e guarda-corpo.
-        Atendemos Botucatu e região há {yearsActive} anos com orçamento sem compromisso.
+        Vidraceiro com {experienceYears} anos de experiência, atendendo Botucatu e região com orçamento sem compromisso.
       </p>
       <div class="mt-8 flex flex-col gap-3 sm:flex-row">
         <a href={waLink(DEFAULT_WHATSAPP_MESSAGE)} target="_blank" rel="noopener" class="btn-whatsapp">
@@ -51,12 +51,12 @@ const yearsActive = new Date().getFullYear() - SITE.foundingYear;
   <section class="border-b border-ink-900/5 bg-brand-50">
     <div class="container-page grid grid-cols-2 gap-6 py-8 text-center sm:grid-cols-4">
       <div>
-        <p class="text-2xl font-bold text-brand-700">{yearsActive}+</p>
-        <p class="text-sm text-ink-700">Anos de experiência</p>
+        <p class="text-2xl font-bold text-brand-700">{experienceYears}+</p>
+        <p class="text-sm text-ink-700">Anos de experiência no ofício</p>
       </div>
       <div>
         <p class="text-2xl font-bold text-brand-700">100%</p>
-        <p class="text-sm text-ink-700">Vidro temperado certificado</p>
+        <p class="text-sm text-ink-700">Garantia por escrito na instalação</p>
       </div>
       <div>
         <p class="text-2xl font-bold text-brand-700">7 dias</p>
@@ -96,11 +96,11 @@ const yearsActive = new Date().getFullYear() - SITE.foundingYear;
           </li>
           <li class="flex gap-3">
             <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-brand-600"></span>
-            <span class="text-ink-700"><strong class="text-ink-900">Vidro temperado certificado</strong>, mais resistente e seguro.</span>
+            <span class="text-ink-700"><strong class="text-ink-900">Vidro temperado de 8mm, de fornecedor com procedência</strong>, mais resistente e seguro.</span>
           </li>
           <li class="flex gap-3">
             <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-brand-600"></span>
-            <span class="text-ink-700"><strong class="text-ink-900">Equipe própria de instalação</strong>, sem intermediários.</span>
+            <span class="text-ink-700"><strong class="text-ink-900">Instalação feita pelo próprio vidraceiro</strong>, sem intermediários.</span>
           </li>
           <li class="flex gap-3">
             <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-brand-600"></span>

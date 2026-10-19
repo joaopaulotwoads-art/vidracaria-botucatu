@@ -9,14 +9,14 @@ import { DEFAULT_WHATSAPP_MESSAGE } from '../lib/whatsapp';
 import sobreVidracariaFachada from '../assets/images/sobre-vidracaria-fachada-botucatu-sp.jpg';
 
 const title = `Sobre a ${SITE.shortName} | Vidraçaria em Botucatu SP`;
-const description = `Conheça a história da ${SITE.shortName}, vidraçaria em Botucatu - SP com mais de ${new Date().getFullYear() - SITE.foundingYear} anos de experiência em vidro temperado.`;
+const description = `Conheça a história da ${SITE.shortName}, vidraçaria em Botucatu - SP com ${SITE.experienceYears} anos de experiência em vidro temperado.`;
 
 const crumbs = [
   { name: 'Início', path: '/' },
   { name: 'Sobre', path: '/sobre/' },
 ];
 
-const yearsActive = new Date().getFullYear() - SITE.foundingYear;
+const experienceYears = SITE.experienceYears;
 ---
 
 <Layout title={title} description={description} whatsappMessage={DEFAULT_WHATSAPP_MESSAGE} jsonLd={[breadcrumbSchema(crumbs)]}>
@@ -29,15 +29,15 @@ const yearsActive = new Date().getFullYear() - SITE.foundingYear;
         Tradição em vidro, atendimento próximo de quem mora em Botucatu
       </h1>
       <p class="mt-4 text-ink-700">
-        A {SITE.shortName} atua desde {SITE.foundingYear} fabricando e instalando vidro temperado para
-        residências e comércios em Botucatu e região. Ao longo de {yearsActive} anos, atendemos
+        Vidraceiro com {experienceYears} anos de experiência, a {SITE.shortName} fabrica e instala vidro
+        temperado para residências e comércios em Botucatu e região. Atendemos desde
         projetos simples, como a troca de um <a href="/box-de-banheiro/" class="font-semibold text-brand-600 hover:underline">box de banheiro</a>,
-        e projetos complexos, como <a href="/fachadas-comerciais/" class="font-semibold text-brand-600 hover:underline">fachadas comerciais</a> completas.
+        até projetos complexos, como <a href="/fachadas-comerciais/" class="font-semibold text-brand-600 hover:underline">fachadas comerciais</a> completas.
       </p>
       <p class="mt-4 text-ink-700">
         Nosso diferencial é acompanhar o cliente do início ao fim: medição no local, orientação sobre o
-        tipo de <a href="/vidro-temperado/" class="font-semibold text-brand-600 hover:underline">vidro temperado</a> mais adequado, fabricação sob medida e instalação feita por
-        equipe própria, sem terceirizar a etapa mais importante do serviço.
+        tipo de <a href="/vidro-temperado/" class="font-semibold text-brand-600 hover:underline">vidro temperado</a> mais adequado, fabricação sob medida e instalação feita
+        pelo próprio vidraceiro, sem terceirizar a etapa mais importante do serviço.
       </p>
       <p class="mt-4 text-ink-700">
         Confira a lista completa dos nossos <a href="/servicos/" class="font-semibold text-brand-600 hover:underline">serviços de vidraçaria em Botucatu</a> e encontre a solução ideal para o seu projeto.
@@ -67,7 +67,7 @@ const yearsActive = new Date().getFullYear() - SITE.foundingYear;
       <div class="rounded-2xl bg-white p-6 shadow-sm">
         <h2 class="text-lg font-semibold text-ink-900">Como trabalhamos</h2>
         <p class="mt-2 text-sm text-ink-700">
-          Visita técnica, orçamento detalhado, fabricação sob medida e instalação por equipe própria,
+          Visita técnica, orçamento detalhado, fabricação sob medida e instalação pelo próprio vidraceiro,
           com garantia por escrito em cada etapa.
         </p>
       </div>
