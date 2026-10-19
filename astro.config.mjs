@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
-const site = 'https://www.vidracariabotucatu.com.br';
+const site = 'https://vidracariabotucatu.com.br';
 
 // https://astro.build/config
 export default defineConfig({

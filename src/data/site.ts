@@ -7,7 +7,7 @@ export const SITE = {
   tagline: 'Vidros e espelhos sob medida em Botucatu - SP',
   description:
     'Vidraçaria em Botucatu-SP: box para banheiro, espelhos, sacadas e vidro temperado sob medida. Orçamento pelo WhatsApp. Atendemos toda a região.',
-  url: 'https://www.vidracariabotucatu.com.br',
+  url: 'https://vidracariabotucatu.com.br',
   phoneDisplay: '(14) 98165-1674',
   phoneE164: '+5514981651674',
   whatsappDisplay: '(14) 98165-1674',
