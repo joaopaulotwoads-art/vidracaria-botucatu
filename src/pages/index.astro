@@ -10,12 +10,13 @@ import { SERVICES, getServiceBySlug } from '../data/services';
 import { faqSchema } from '../lib/schema';
 import { waLink, DEFAULT_WHATSAPP_MESSAGE } from '../lib/whatsapp';
 import instalacaoVidroResidencial from '../assets/images/instalacao-vidro-residencial-botucatu-sp.jpg';
-import guardaCorpoFoto from '../assets/images/guarda-corpo-vidro-escada-botucatu-sp.jpg';
 
 const title = 'Vidraçaria em Botucatu | Box, Espelhos e Vidro Temperado';
 const description = SITE.description;
 
 const experienceYears = SITE.experienceYears;
+const checkIcon = 'M4 10.5 8 14l8-8';
+const pinIcon = ['M12 21s7-7.1 7-12a7 7 0 1 0-14 0c0 4.9 7 12 7 12Z'];
 
 const smallJobs = [
   { title: 'Troca de vidro quebrado', description: 'Substituição de vidro trincado ou quebrado em janelas, portas e armários.' },
@@ -38,6 +39,16 @@ const featuredServices = SERVICES.slice(0, 6);
 const galleryWork = ['box-de-banheiro', 'espelhos', 'portas-de-vidro', 'fachadas-comerciais', 'envidracamento-de-sacada', 'vidro-temperado', 'cobertura-de-vidro']
   .map((slug) => getServiceBySlug(slug))
   .filter((s) => s !== undefined);
+
+const bentoSpans = [
+  'sm:col-span-2 sm:row-span-2',
+  'sm:col-span-2 sm:row-span-1',
+  'sm:col-span-2 sm:row-span-1',
+  'sm:col-span-1 sm:row-span-1',
+  'sm:col-span-3 sm:row-span-1',
+  'sm:col-span-2 sm:row-span-1',
+  'sm:col-span-2 sm:row-span-1',
+];
 
 const homeFaqs = [
   {
@@ -80,68 +91,70 @@ const howItWorks = [
     icon: ['M14.7 6.3a4 4 0 0 0-5.4 5.4L4 17v3h3l5.3-5.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2-2 2.6-2.6Z'],
   },
 ];
+
+const temperedHighlights = [
+  { label: 'Mais resistente a impacto', icon: ['M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z'] },
+  { label: 'Quebra em pedaços pequenos, não em estilhaços', icon: ['M4 4h6v6H4V4ZM14 4h6v6h-6V4ZM4 14h6v6H4v-6ZM14 14h6v6h-6v-6Z'] },
+  { label: 'Cortado e temperado sob medida', icon: ['M3 17 17 3', 'M6.5 13.5l2 2M9.5 10.5l2 2M12.5 7.5l2 2'] },
+];
 ---
 
 <Layout title={title} description={description} whatsappMessage={DEFAULT_WHATSAPP_MESSAGE} jsonLd={[faqSchema(homeFaqs)]}>
-  <section class="relative overflow-hidden bg-gradient-to-br from-ink-900 via-ink-900 to-brand-950">
-    <div class="container-page relative grid gap-10 py-16 sm:py-24 lg:grid-cols-2 lg:items-center lg:py-28">
-      <div>
-        <h1 class="text-4xl font-bold leading-tight text-white sm:text-5xl">
-          Vidraçaria <span class="block text-brand-300">em Botucatu</span>
-        </h1>
-        <p class="mt-4 max-w-md text-lg text-slate-200">
-          Box, espelhos e vidro temperado sob medida. Orçamento sem compromisso em Botucatu e região.
-        </p>
-        <div class="mt-8">
-          <a href={waLink(DEFAULT_WHATSAPP_MESSAGE)} target="_blank" rel="noopener" class="btn-whatsapp">
-            Peça seu orçamento no WhatsApp
-          </a>
-        </div>
-      </div>
-      <div class="glass-panel border-white/10">
-        <Image
-          src={guardaCorpoFoto}
-          alt="Guarda-corpo de vidro temperado com estrutura em alumínio branco em sacada residencial"
-          width={1200}
-          height={900}
-          loading="eager"
-          fetchpriority="high"
-          class="aspect-[4/3] h-full w-full object-cover"
-        />
-        <div class="glass-sheen"></div>
+  <!-- HERO (navy) -->
+  <section class="section-hero relative overflow-hidden bg-navy">
+    <svg aria-hidden="true" class="pointer-events-none absolute top-1/2 right-[-60px] hidden h-[520px] w-[520px] -translate-y-1/2 lg:block" viewBox="0 0 400 400" fill="none">
+      <rect x="40" y="40" width="320" height="320" rx="20" stroke="#84A8E3" stroke-opacity="0.35" stroke-width="3"/>
+      <path d="M200 40v320M40 200h320" stroke="#84A8E3" stroke-opacity="0.3" stroke-width="2.5"/>
+      <path d="M120 40v320M280 40v320" stroke="#84A8E3" stroke-opacity="0.18" stroke-width="2"/>
+      <path d="M40 120h320M40 280h320" stroke="#84A8E3" stroke-opacity="0.18" stroke-width="2"/>
+      <path d="M70 70l60 60M330 70l-60 60" stroke="#84A8E3" stroke-opacity="0.45" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <div class="container-page relative">
+      <h1 class="text-white">
+        Vidraçaria <span class="block text-brand-300">em Botucatu</span>
+      </h1>
+      <p class="subtitle mt-4 max-w-md text-slate-200">
+        Box, espelhos e vidro temperado sob medida. Orçamento sem compromisso em Botucatu e região.
+      </p>
+      <div class="mt-8">
+        <a href={waLink(DEFAULT_WHATSAPP_MESSAGE)} target="_blank" rel="noopener" class="btn-whatsapp" style="box-shadow: 0 0 0 6px rgba(37,211,102,.18), 0 4px 14px rgba(37,211,102,.35);">
+          Peça seu orçamento no WhatsApp
+        </a>
       </div>
     </div>
   </section>
 
-  <section class="border-y border-ink-900/8 bg-white">
-    <div class="container-page grid grid-cols-2 divide-x divide-y divide-ink-900/8 sm:grid-cols-4 sm:divide-y-0">
+  <!-- Faixa de números -->
+  <section class="border-y border-line bg-white">
+    <div class="container-page grid grid-cols-2 divide-x divide-y divide-line sm:grid-cols-4 sm:divide-y-0">
       <div class="px-4 py-8 text-center sm:px-6">
-        <p class="font-display text-3xl font-semibold tabular-nums text-brand-700">{experienceYears}+</p>
+        <p class="text-3xl font-extrabold tabular-nums text-brand-600">{experienceYears}+</p>
         <p class="mt-1.5 text-sm text-ink-700">Anos de experiência no ofício</p>
       </div>
       <div class="px-4 py-8 text-center sm:px-6">
-        <svg aria-hidden="true" class="mx-auto h-8 w-8 text-brand-700" viewBox="0 0 24 24" fill="none">
+        <svg aria-hidden="true" class="mx-auto h-8 w-8 text-brand-600" viewBox="0 0 24 24" fill="none">
           <path d="M12 2.5l2.2 1.6 2.7-.3 1 2.6 2.4 1.3-.5 2.7 1.4 2.3-1.8 2.1.3 2.7-2.6.9-1.3 2.4-2.7-.5-2.3 1.4-2.1-1.8-2.7.3-.9-2.6-2.4-1.3.5-2.7-1.4-2.3 1.8-2.1-.3-2.7 2.6-.9 1.3-2.4 2.7.5 2.3-1.4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
           <path d="M9 12.3l2 2 4-4.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <p class="mt-1.5 text-sm text-ink-700">Garantia por escrito na instalação</p>
       </div>
       <div class="px-4 py-8 text-center sm:px-6">
-        <p class="font-display text-3xl font-semibold tabular-nums text-brand-700">7 dias</p>
+        <p class="text-3xl font-extrabold tabular-nums text-brand-600">7 dias</p>
         <p class="mt-1.5 text-sm text-ink-700">Prazo médio de instalação</p>
       </div>
       <div class="px-4 py-8 text-center sm:px-6">
-        <p class="font-display text-3xl font-semibold tabular-nums text-brand-700">{SITE.areaServed.length}</p>
+        <p class="text-3xl font-extrabold tabular-nums text-brand-600">{SITE.areaServed.length}</p>
         <p class="mt-1.5 text-sm text-ink-700">Cidades atendidas na região</p>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <!-- Serviços (branco) -->
+  <section class="section bg-white">
     <div class="container-page">
       <p class="eyebrow">Nossos serviços</p>
-      <h2 class="mt-2 text-3xl text-ink-900">Soluções completas em vidro para sua casa ou comércio</h2>
-      <p class="mt-3 max-w-2xl text-ink-700">
+      <h2 class="mt-2 text-ink-900">Soluções completas em vidro para sua casa ou comércio</h2>
+      <p class="subtitle mt-3 max-w-2xl text-ink-700">
         Do box de banheiro à fachada comercial, cuidamos de todas as etapas: medição, fabricação e instalação. No
         total são {SERVICES.length} serviços diferentes, incluindo peças sob medida e manutenção do que já está
         instalado. Alguns dos mais pedidos:
@@ -155,104 +168,68 @@ const howItWorks = [
     </div>
   </section>
 
-  <section class="section bg-slate-50">
+  <!-- Outros serviços (cinza) -->
+  <section class="section bg-bg-gray">
     <div class="container-page">
-      <p class="eyebrow">Trabalhos realizados</p>
-      <h2 class="mt-2 text-3xl text-ink-900">Fotos reais de obras em Botucatu</h2>
-      <p class="mt-3 max-w-2xl text-ink-700">
-        Uma amostra de serviços que já entregamos na cidade e região. Clique em uma foto para ampliar.
+      <p class="eyebrow">Outros serviços</p>
+      <h2 class="mt-2 text-ink-900">Serviços menores de vidraçaria</h2>
+      <p class="subtitle mt-3 max-w-2xl text-ink-700">
+        Além dos serviços com página própria, também atendemos pedidos pontuais e trocas rápidas de vidro. São
+        serviços menores, que geralmente não precisam de projeto completo, mas que seguem o mesmo cuidado na
+        medição e no corte do vidro:
       </p>
-      <div class="mt-10 columns-2 gap-4 sm:columns-3 [&>*]:mb-4">
-        {galleryWork.map((service) => (
-          <button
-            type="button"
-            class="gallery-item glass-panel group block w-full break-inside-avoid text-left"
-            data-caption={service.shortTitle}
-          >
-            <Image
-              src={service.heroImage}
-              alt={service.heroImageAlt}
-              width={500}
-              height={Math.round((500 * service.heroImage.height) / service.heroImage.width)}
-              loading="lazy"
-              class="w-full transition-transform duration-500 group-hover:scale-[1.03]"
-            />
-            <span class="block px-4 py-3 text-sm font-semibold text-ink-900">{service.shortTitle}</span>
-          </button>
+      <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {smallJobs.map((job) => (
+          <div class="card p-5">
+            <p class="font-semibold text-ink-900">{job.title}</p>
+            <p class="mt-2 text-sm text-ink-700">{job.description}</p>
+          </div>
         ))}
       </div>
-      <a href={SITE.social.instagram} target="_blank" rel="noopener" class="btn-secondary mt-8">
-        Ver mais no Instagram
+      <a href={waLink(DEFAULT_WHATSAPP_MESSAGE)} target="_blank" rel="noopener" class="mt-6 inline-block font-semibold text-brand-600 hover:underline">
+        Peça um orçamento desses serviços pelo WhatsApp →
       </a>
-
-      <dialog id="work-lightbox" class="m-auto max-w-3xl rounded-2xl bg-transparent p-0 backdrop:bg-ink-900/80">
-        <div class="relative">
-          <button type="button" id="work-lightbox-close" aria-label="Fechar" class="absolute -top-3 -right-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white text-ink-900 shadow-lg">
-            <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          </button>
-          <img id="work-lightbox-img" src="" alt="" class="max-h-[80vh] w-full rounded-2xl object-contain" />
-          <p id="work-lightbox-caption" class="mt-3 text-center text-sm font-medium text-white"></p>
-        </div>
-      </dialog>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container-page">
-      <p class="eyebrow">Como funciona</p>
-      <h2 class="mt-2 text-3xl text-ink-900">Do primeiro contato à instalação</h2>
-      <p class="mt-3 max-w-2xl text-ink-700">
-        O processo é o mesmo para qualquer serviço, de um box de banheiro simples a uma fachada comercial completa:
-      </p>
-      <ol class="relative mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        <div class="absolute top-10 right-0 left-0 hidden h-px bg-ink-900/10 lg:block" aria-hidden="true"></div>
-        {howItWorks.map((step) => (
-          <li class="glass-panel relative p-5">
-            <span class="flex h-10 w-10 items-center justify-center rounded-full border border-brand-600/15 bg-white text-brand-600">
-              <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none">
-                {step.icon.map((d) => <path d={d} stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />)}
-              </svg>
-            </span>
-            <p class="mt-3 font-semibold text-ink-900">{step.title}</p>
-            <p class="mt-1 text-sm text-ink-700">{step.description}</p>
-          </li>
-        ))}
-      </ol>
-    </div>
-  </section>
-
-  <section class="section">
+  <!-- Por que escolher (NAVY) -->
+  <section class="section bg-navy">
     <div class="container-page grid gap-10 lg:grid-cols-2 lg:items-center">
       <div>
-        <p class="eyebrow">Por que escolher a {SITE.shortName}</p>
-        <h2 class="mt-2 text-3xl text-ink-900">
+        <p class="eyebrow" style="color: #84A8E3;">Por que escolher a {SITE.shortName}</p>
+        <h2 class="mt-2 text-white">
           Qualidade no vidro, segurança na instalação
         </h2>
-        <p class="mt-3 text-ink-700">
+        <p class="subtitle mt-3 text-slate-300">
           Antes de contratar uma vidraçaria, vale confirmar três coisas: se a visita técnica é feita antes do
           orçamento, se a instalação fica por conta de quem fabricou o vidro (ou é terceirizada) e se a garantia é
           dada por escrito. É assim que trabalhamos:
         </p>
         <ul class="mt-6 space-y-4">
           <li class="flex gap-3">
-            <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-brand-600"></span>
-            <span class="text-ink-700"><strong class="text-ink-900">Visita técnica e medição gratuitas</strong> antes de qualquer orçamento.</span>
+            <span class="check-circle mt-0.5">
+              <svg aria-hidden="true" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="none"><path d={checkIcon} stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="text-slate-200"><strong class="text-white">Visita técnica e medição gratuitas</strong> antes de qualquer orçamento.</span>
           </li>
           <li class="flex gap-3">
-            <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-brand-600"></span>
-            <span class="text-ink-700"><strong class="text-ink-900">Vidro temperado de 8mm, de fornecedor com procedência</strong>, mais resistente e seguro.</span>
+            <span class="check-circle mt-0.5">
+              <svg aria-hidden="true" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="none"><path d={checkIcon} stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="text-slate-200"><strong class="text-white">Vidro temperado de 8mm, de fornecedor com procedência</strong>, mais resistente e seguro.</span>
           </li>
           <li class="flex gap-3">
-            <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-brand-600"></span>
-            <span class="text-ink-700"><strong class="text-ink-900">Instalação feita pelo próprio vidraceiro</strong>, sem intermediários.</span>
-          </li>
-          <li class="flex gap-3">
-            <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-brand-600"></span>
-            <span class="text-ink-700"><strong class="text-ink-900">Garantia por escrito</strong> em material e instalação.</span>
+            <span class="check-circle mt-0.5">
+              <svg aria-hidden="true" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="none"><path d={checkIcon} stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="text-slate-200"><strong class="text-white">Instalação feita pelo próprio vidraceiro</strong>, sem intermediários.</span>
           </li>
         </ul>
+        <div class="mt-6 rounded-r-xl rounded-l-sm border-l-4 border-brand-400 bg-white/5 py-3 pl-5">
+          <p class="font-semibold text-white">Garantia por escrito em material e instalação.</p>
+        </div>
       </div>
-      <div class="overflow-hidden rounded-2xl">
+      <div class="card">
         <Image
           src={instalacaoVidroResidencial}
           alt="Porta de vidro de correr instalada em área gourmet residencial com churrasqueira e piscina"
@@ -265,117 +242,182 @@ const howItWorks = [
     </div>
   </section>
 
-  <section class="section">
-    <div class="container-page grid gap-10 lg:grid-cols-2">
-      <div>
-        <p class="eyebrow">Sobre o material</p>
-        <h2 class="mt-2 text-3xl text-ink-900">Vidro temperado: o que você precisa saber</h2>
-        <p class="mt-4 text-ink-700">
-          A maioria dos nossos serviços usa vidro temperado, que passa por um processo térmico (aquecimento seguido
-          de resfriamento rápido) que muda a estrutura interna do vidro. O resultado é um material bem mais
-          resistente a impacto e a variações de temperatura do que o vidro comum, e que, se quebrar, se fragmenta em
-          pedaços pequenos e menos cortantes, em vez de estilhaços grandes.
-        </p>
-        <p class="mt-4 text-ink-700">
-          Depois de temperado, o vidro não pode mais ser cortado, furado ou lapidado. Por isso a medição antes da
-          fabricação é a etapa mais importante de qualquer projeto. Para aplicações que exigem mais segurança contra
-          queda, como guarda-corpo e cobertura, trabalhamos com vidro laminado, que combina duas lâminas de vidro
-          com uma película interna, mantendo os cacos presos mesmo se o vidro trincar.
-        </p>
-      </div>
-      <div class="flex flex-col justify-center gap-5">
-        <div class="glass-panel flex items-center gap-4 p-5">
-          <span class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand-600">
-            <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-          <p class="font-semibold text-ink-900">Mais resistente a impacto</p>
-        </div>
-        <div class="glass-panel flex items-center gap-4 p-5">
-          <span class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand-600">
-            <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M4 4h6v6H4V4ZM14 4h6v6h-6V4ZM4 14h6v6H4v-6ZM14 14h6v6h-6v-6Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-          <p class="font-semibold text-ink-900">Quebra em pedaços pequenos, não em estilhaços</p>
-        </div>
-        <div class="glass-panel flex items-center gap-4 p-5">
-          <span class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand-600">
-            <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M3 17 17 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M6.5 13.5l2 2M9.5 10.5l2 2M12.5 7.5l2 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-          </span>
-          <p class="font-semibold text-ink-900">Cortado e temperado sob medida</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section bg-slate-50">
+  <!-- Como funciona (branco) -->
+  <section class="section bg-white">
     <div class="container-page">
-      <p class="eyebrow">Outros serviços</p>
-      <h2 class="mt-2 text-3xl text-ink-900">Serviços menores de vidraçaria</h2>
-      <p class="mt-3 max-w-2xl text-ink-700">
-        Além dos serviços com página própria, também atendemos pedidos pontuais e trocas rápidas de vidro. São
-        serviços menores, que geralmente não precisam de projeto completo, mas que seguem o mesmo cuidado na
-        medição e no corte do vidro:
+      <p class="eyebrow">Como funciona</p>
+      <h2 class="mt-2 text-ink-900">Do primeiro contato à instalação</h2>
+      <p class="subtitle mt-3 max-w-2xl text-ink-700">
+        O processo é o mesmo para qualquer serviço, de um box de banheiro simples a uma fachada comercial completa:
       </p>
-      <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {smallJobs.map((job) => (
-          <div class="rounded-2xl bg-white p-5 shadow-sm">
-            <p class="font-semibold text-ink-900">{job.title}</p>
-            <p class="mt-2 text-sm text-ink-700">{job.description}</p>
-          </div>
+      <ol class="relative mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="absolute top-10 right-0 left-0 hidden h-px bg-line lg:block" aria-hidden="true"></div>
+        {howItWorks.map((step) => (
+          <li class="card relative p-5">
+            <span class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 text-white">
+              <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none">
+                {step.icon.map((d) => <path d={d} stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />)}
+              </svg>
+            </span>
+            <p class="mt-3 font-semibold text-ink-900">{step.title}</p>
+            <p class="mt-1 text-sm text-ink-700">{step.description}</p>
+          </li>
         ))}
-      </div>
-      <a href={waLink(DEFAULT_WHATSAPP_MESSAGE)} target="_blank" rel="noopener" class="mt-6 inline-block font-semibold text-brand-600 hover:underline">
-        Peça um orçamento desses serviços pelo WhatsApp →
-      </a>
-    </div>
-  </section>
+      </ol>
 
-  <section class="section bg-gradient-to-br from-ink-900 to-brand-950">
-    <div class="container-page grid gap-10 lg:grid-cols-2">
-      <div>
-        <p class="eyebrow text-brand-300">Área de atendimento</p>
-        <h2 class="mt-2 text-3xl text-white">Atendemos Botucatu e toda a região</h2>
-        <p class="mt-3 max-w-md text-slate-300">
-          Realizamos visita técnica, fabricação e instalação nas seguintes cidades, sempre com o mesmo padrão de
-          atendimento que usamos em Botucatu: visita presencial, orçamento fechado antes da fabricação e instalação
-          pelo próprio vidraceiro.
-        </p>
-        <div class="mt-6 flex flex-wrap gap-2">
-          {SITE.areaServed.map((city) => (
-            <span class="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-white">{city}</span>
+      <div class="mt-14 grid gap-10 lg:grid-cols-2">
+        <div>
+          <p class="eyebrow">Sobre o material</p>
+          <h2 class="mt-2 text-ink-900">Vidro temperado: o que você precisa saber</h2>
+          <p class="mt-4 text-ink-700">
+            A maioria dos nossos serviços usa vidro temperado, que passa por um processo térmico (aquecimento seguido
+            de resfriamento rápido) que muda a estrutura interna do vidro. O resultado é um material bem mais
+            resistente a impacto e a variações de temperatura do que o vidro comum, e que, se quebrar, se fragmenta em
+            pedaços pequenos e menos cortantes, em vez de estilhaços grandes.
+          </p>
+          <p class="mt-4 text-ink-700">
+            Depois de temperado, o vidro não pode mais ser cortado, furado ou lapidado. Por isso a medição antes da
+            fabricação é a etapa mais importante de qualquer projeto. Para aplicações que exigem mais segurança contra
+            queda, como guarda-corpo e cobertura, trabalhamos com vidro laminado, que combina duas lâminas de vidro
+            com uma película interna, mantendo os cacos presos mesmo se o vidro trincar.
+          </p>
+        </div>
+        <div class="flex flex-col justify-center gap-4">
+          {temperedHighlights.map((item) => (
+            <div class="card flex items-center gap-4 p-5">
+              <span class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-brand-600 text-white">
+                <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none">
+                  {item.icon.map((d) => <path d={d} stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />)}
+                </svg>
+              </span>
+              <p class="font-semibold text-ink-900">{item.label}</p>
+            </div>
           ))}
         </div>
-      </div>
-      <div>
-        <p class="eyebrow text-brand-300">Bairros atendidos</p>
-        <h2 class="mt-2 text-3xl text-white">Bairros atendidos em Botucatu</h2>
-        <p class="mt-3 max-w-md text-slate-300">
-          Alguns dos bairros onde já realizamos serviços de vidraçaria:
-        </p>
-        <div class="mt-6 flex flex-wrap gap-2">
-          {botucatuNeighborhoods.map((bairro) => (
-            <span class="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-white">{bairro}</span>
-          ))}
-          <span class="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-white">e outros bairros</span>
-        </div>
-        <a href="/onde-atendemos/" class="mt-6 inline-block font-semibold text-brand-300 hover:text-white hover:underline">
-          Ver todos os bairros e cidades atendidos →
-        </a>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <!-- Faixa CTA (gradiente) -->
+  <CtaSection whatsappMessage={DEFAULT_WHATSAPP_MESSAGE} />
+
+  <!-- FAQ (cinza) -->
+  <section class="section bg-bg-gray">
     <div class="container-page max-w-3xl">
       <p class="eyebrow">Dúvidas comuns</p>
-      <h2 class="mt-2 text-3xl text-ink-900">Perguntas frequentes</h2>
+      <h2 class="mt-2 text-ink-900">Perguntas frequentes</h2>
       <div class="mt-6">
         <FaqAccordion faqs={homeFaqs} />
       </div>
     </div>
   </section>
 
+  <!-- Galeria (branco) -->
+  <section class="section bg-white">
+    <div class="container-page">
+      <p class="eyebrow">Serviços realizados</p>
+      <h2 class="mt-2 text-ink-900">Fotos reais de obras em Botucatu</h2>
+      <p class="subtitle mt-3 max-w-2xl text-ink-700">
+        Uma amostra de serviços que já entregamos na cidade e região. Clique em uma foto para ampliar.
+      </p>
+      <div class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4 sm:[grid-auto-rows:160px]">
+        {galleryWork.map((service, index) => (
+          <button
+            type="button"
+            class={`gallery-item card group relative col-span-2 block overflow-hidden text-left ${bentoSpans[index] ?? ''}`}
+            data-caption={service.shortTitle}
+          >
+            <Image
+              src={service.heroImage}
+              alt={service.heroImageAlt}
+              width={700}
+              height={700}
+              loading="lazy"
+              class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+            />
+            <span class="absolute top-3 left-3 flex h-9 w-9 items-center justify-center rounded-xl bg-brand-600 text-white">
+              <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="none"><path d="M4 7h4l2-3h4l2 3h4v12H4V7Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.2" stroke="currentColor" stroke-width="1.8"/></svg>
+            </span>
+            <span class="absolute bottom-3 left-3 rounded-full bg-ink-900/80 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-sm">
+              {service.shortTitle}
+            </span>
+          </button>
+        ))}
+      </div>
+      <a href={SITE.social.instagram} target="_blank" rel="noopener" class="btn-secondary mt-8">
+        Ver mais no Instagram
+      </a>
+
+      <dialog id="work-lightbox" class="m-auto max-w-3xl rounded-[22px] bg-transparent p-0 backdrop:bg-ink-900/80">
+        <div class="relative">
+          <button type="button" id="work-lightbox-close" aria-label="Fechar" class="absolute -top-3 -right-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white text-ink-900 shadow-lg">
+            <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <img id="work-lightbox-img" src="" alt="" class="max-h-[80vh] w-full rounded-[22px] object-contain" />
+          <p id="work-lightbox-caption" class="mt-3 text-center text-sm font-medium text-white"></p>
+        </div>
+      </dialog>
+    </div>
+  </section>
+
+  <!-- Área de atendimento + bairros (cinza) -->
+  <section class="section bg-bg-gray">
+    <div class="container-page">
+      <div class="grid gap-10 lg:grid-cols-2">
+        <div>
+          <p class="eyebrow">Área de atendimento</p>
+          <h2 class="mt-2 text-ink-900">Atendemos Botucatu e toda a região</h2>
+          <p class="mt-3 max-w-md text-ink-700">
+            Realizamos visita técnica, fabricação e instalação nas seguintes cidades, sempre com o mesmo padrão de
+            atendimento que usamos em Botucatu: visita presencial, orçamento fechado antes da fabricação e instalação
+            pelo próprio vidraceiro.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            {SITE.areaServed.map((city) => (
+              <span class="chip">
+                <svg aria-hidden="true" class="h-3.5 w-3.5 text-brand-600" viewBox="0 0 24 24" fill="none"><path d={pinIcon[0]} stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.3" stroke="currentColor" stroke-width="1.8"/></svg>
+                {city}
+              </span>
+            ))}
+          </div>
+        </div>
+        <div>
+          <p class="eyebrow">Bairros atendidos</p>
+          <h2 class="mt-2 text-ink-900">Bairros atendidos em Botucatu</h2>
+          <p class="mt-3 max-w-md text-ink-700">
+            Alguns dos bairros onde já realizamos serviços de vidraçaria:
+          </p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            {botucatuNeighborhoods.map((bairro) => (
+              <span class="chip">
+                <svg aria-hidden="true" class="h-3.5 w-3.5 text-brand-600" viewBox="0 0 24 24" fill="none"><path d={pinIcon[0]} stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.3" stroke="currentColor" stroke-width="1.8"/></svg>
+                {bairro}
+              </span>
+            ))}
+            <span class="chip">e outros bairros</span>
+          </div>
+          <a href="/onde-atendemos/" class="mt-4 inline-block font-semibold text-brand-600 hover:underline">
+            Ver todos os bairros e cidades atendidos →
+          </a>
+        </div>
+      </div>
+      <div class="card mt-10 overflow-hidden">
+        <iframe
+          title={`Mapa da região de atendimento em ${SITE.address.city}`}
+          src={SITE.mapEmbedSrc}
+          width="100%"
+          height="320"
+          style="border:0; display:block;"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
   <ReviewsSection />
 
+  <!-- CTA final -->
   <CtaSection whatsappMessage={DEFAULT_WHATSAPP_MESSAGE} />
 </Layout>
 

@@ -6,13 +6,13 @@ import { reviewsSchema } from '../lib/schema';
 
 {REVIEWS.length > 0 && (
   <>
-  <section class="section bg-slate-50">
+  <section class="section bg-bg-gray">
     <div class="container-page">
       <p class="eyebrow">Avaliações</p>
       <h2 class="mt-2 text-3xl text-ink-900">O que nossos clientes dizem</h2>
       <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {REVIEWS.map((review) => (
-          <div class="rounded-2xl bg-white p-6 shadow-sm">
+          <div class="rounded-[22px] bg-white p-6 shadow-sm">
             <div class="flex gap-1 text-brand-600" aria-label={`Nota ${review.rating} de 5`}>
               {Array.from({ length: 5 }).map((_, i) => (
                 <span aria-hidden="true">{i < review.rating ? '★' : '☆'}</span>

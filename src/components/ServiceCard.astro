@@ -13,9 +13,9 @@ const iconPaths = getServiceIconPaths(service.slug);
 
 <a
   href={servicePath(service)}
-  class="glass-panel group flex flex-col transition hover:border-ink-900/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700"
+  class="card group flex flex-col transition hover:border-brand-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700"
 >
-  <div class="relative aspect-[4/3] overflow-hidden border-b border-ink-900/8">
+  <div class="relative aspect-[4/3] overflow-hidden">
     <Image
       src={service.heroImage}
       alt={service.heroImageAlt}
@@ -24,20 +24,17 @@ const iconPaths = getServiceIconPaths(service.slug);
       loading="lazy"
       class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
     />
-    <div class="glass-sheen opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+    <span class="absolute top-4 left-4 flex h-11 w-11 items-center justify-center rounded-full bg-brand-600 text-white shadow-sm">
+      <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none">
+        {iconPaths.map((d) => <path d={d} stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />)}
+      </svg>
+    </span>
   </div>
   <div class="flex flex-1 flex-col p-6">
-    <div class="flex items-center gap-2.5">
-      <span class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand-600">
-        <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="none">
-          {iconPaths.map((d) => <path d={d} stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />)}
-        </svg>
-      </span>
-      <h3 class="text-lg text-ink-900">{service.shortTitle}</h3>
-    </div>
+    <h3 class="text-ink-900">{service.shortTitle}</h3>
     <p class="mt-2 flex-1 text-[15px] leading-relaxed text-ink-700">{service.summary}</p>
-    <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600">
-      Ver detalhes
+    <span class="btn-primary mt-5 w-full text-xs tracking-wide uppercase">
+      Saiba mais
       <svg aria-hidden="true" class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </span>
   </div>

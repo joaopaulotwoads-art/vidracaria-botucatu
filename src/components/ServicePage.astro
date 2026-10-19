@@ -42,8 +42,8 @@ const checkIcon = 'M4 10.5 8 14l8-8';
   <section class="container-page grid gap-10 pb-10 lg:grid-cols-2 lg:items-center">
     <div>
       <p class="eyebrow">{SITE.shortName}</p>
-      <h1 class="mt-2 text-4xl font-bold text-ink-900">{service.title}</h1>
-      <p class="mt-4 text-lg text-ink-700">{service.summary}</p>
+      <h1 class="mt-2 text-ink-900">{service.title}</h1>
+      <p class="subtitle mt-4 text-ink-700">{service.summary}</p>
       <div class="mt-6 flex flex-col gap-3 sm:flex-row">
         <a href={waLink(whatsappMessage)} target="_blank" rel="noopener" class="btn-whatsapp">
           Solicitar orçamento
@@ -51,7 +51,7 @@ const checkIcon = 'M4 10.5 8 14l8-8';
         <a href="/servicos/" class="btn-secondary">Ver outros serviços</a>
       </div>
     </div>
-    <div class="glass-panel relative">
+    <div class="card">
       <Image
         src={service.heroImage}
         alt={service.heroImageAlt}
@@ -61,34 +61,33 @@ const checkIcon = 'M4 10.5 8 14l8-8';
         fetchpriority="high"
         class="aspect-[4/3] h-full w-full object-cover"
       />
-      <div class="glass-sheen"></div>
     </div>
   </section>
 
   <section class="container-page pb-14">
-    <h2 class="text-2xl text-ink-900">{service.shortTitle} em Botucatu perto de você</h2>
+    <h2 class="text-ink-900">{service.shortTitle} em Botucatu perto de você</h2>
     <div class="prose-content mt-4 max-w-3xl space-y-4 text-ink-700">
       {service.intro.map((paragraph) => <p set:html={paragraph} />)}
     </div>
   </section>
 
-  <section class="section border-y border-ink-900/8 bg-slate-50/60">
+  <section class="section bg-bg-gray">
     <div class="container-page grid gap-6 lg:grid-cols-2">
-      <div class="glass-panel p-6 sm:p-8">
-        <h2 class="text-xl text-ink-900">Tipos de vidro e espessuras</h2>
+      <div class="card p-6 sm:p-8">
+        <h2 class="text-lg text-ink-900">Tipos de vidro e espessuras</h2>
         <ul class="mt-5 space-y-3">
           {service.typesAndThickness.map((item) => (
             <li class="flex gap-3">
-              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-brand-50">
-                <svg aria-hidden="true" class="h-3 w-3 text-brand-600" viewBox="0 0 20 20" fill="none"><path d={checkIcon} stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="check-circle mt-0.5">
+                <svg aria-hidden="true" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="none"><path d={checkIcon} stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
               <span class="text-ink-700">{item}</span>
             </li>
           ))}
         </ul>
       </div>
-      <div class="glass-panel p-6 sm:p-8">
-        <h2 class="text-xl text-ink-900">Faixa de preço e o que influencia o valor</h2>
+      <div class="card p-6 sm:p-8">
+        <h2 class="text-lg text-ink-900">Faixa de preço e o que influencia o valor</h2>
         <p class="mt-3 text-sm text-ink-700">
           Não trabalhamos com tabela fechada, porque o valor muda bastante conforme o projeto. O orçamento é
           sempre feito depois da visita técnica, sem compromisso. O que mais influencia o preço:
@@ -96,8 +95,8 @@ const checkIcon = 'M4 10.5 8 14l8-8';
         <ul class="mt-4 space-y-3">
           {service.priceFactors.map((factor) => (
             <li class="flex gap-3">
-              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-brand-50">
-                <svg aria-hidden="true" class="h-3 w-3 text-brand-600" viewBox="0 0 20 20" fill="none"><path d={checkIcon} stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="check-circle mt-0.5">
+                <svg aria-hidden="true" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="none"><path d={checkIcon} stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
               <span class="text-ink-700">{factor}</span>
             </li>
@@ -110,12 +109,12 @@ const checkIcon = 'M4 10.5 8 14l8-8';
   <section class="section">
     <div class="container-page grid gap-10 lg:grid-cols-2">
       <div>
-        <h2 class="text-2xl text-ink-900">Por que escolher nossa vidraçaria</h2>
+        <h2 class="text-ink-900">Por que escolher nossa vidraçaria</h2>
         <ul class="mt-5 space-y-3">
           {service.benefits.map((benefit) => (
             <li class="flex gap-3">
-              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-brand-50">
-                <svg aria-hidden="true" class="h-3 w-3 text-brand-600" viewBox="0 0 20 20" fill="none"><path d={checkIcon} stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="check-circle mt-0.5">
+                <svg aria-hidden="true" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="none"><path d={checkIcon} stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
               <span class="text-ink-700">{benefit}</span>
             </li>
@@ -123,11 +122,11 @@ const checkIcon = 'M4 10.5 8 14l8-8';
         </ul>
       </div>
       <div>
-        <h2 class="text-2xl text-ink-900">Como funciona</h2>
+        <h2 class="text-ink-900">Como funciona</h2>
         <ol class="mt-5 space-y-5">
           {service.process.map((step, index) => (
             <li class="flex gap-4">
-              <span class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-brand-600/20 bg-brand-50 text-sm font-semibold text-brand-700">
+              <span class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-brand-600 text-sm font-bold text-white">
                 {index + 1}
               </span>
               <div>
@@ -141,13 +140,13 @@ const checkIcon = 'M4 10.5 8 14l8-8';
     </div>
   </section>
 
-  <section class="section bg-slate-50/60">
+  <section class="section bg-bg-gray">
     <div class="container-page max-w-3xl">
-      <h2 class="text-2xl text-ink-900">Erros comuns ao contratar {service.shortTitle.toLowerCase()}</h2>
+      <h2 class="text-ink-900">Erros comuns ao contratar {service.shortTitle.toLowerCase()}</h2>
       <ul class="mt-5 space-y-3">
         {service.commonMistakes.map((mistake) => (
           <li class="flex gap-3">
-            <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-ink-900/5">
+            <span class="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-white">
               <svg aria-hidden="true" class="h-3 w-3 text-ink-500" viewBox="0 0 20 20" fill="none"><path d="M6 6l8 8M14 6l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             </span>
             <span class="text-ink-700">{mistake}</span>
@@ -158,7 +157,7 @@ const checkIcon = 'M4 10.5 8 14l8-8';
   </section>
 
   <section class="container-page py-10">
-    <div class="glass-panel flex flex-col items-center gap-3 px-6 py-8 text-center sm:py-10">
+    <div class="card flex flex-col items-center gap-3 px-6 py-8 text-center sm:py-10">
       <p class="text-sm text-ink-700">
         Ficou com alguma dúvida sobre {service.shortTitle.toLowerCase()}?
       </p>
@@ -170,12 +169,12 @@ const checkIcon = 'M4 10.5 8 14l8-8';
 
   <section class="section">
     <div class="container-page max-w-3xl">
-      <h2 class="text-2xl text-ink-900">Cuidados e manutenção</h2>
+      <h2 class="text-ink-900">Cuidados e manutenção</h2>
       <ul class="mt-5 space-y-3">
         {service.careTips.map((tip) => (
           <li class="flex gap-3">
-            <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-brand-50">
-              <svg aria-hidden="true" class="h-3 w-3 text-brand-600" viewBox="0 0 20 20" fill="none"><path d={checkIcon} stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="check-circle mt-0.5">
+              <svg aria-hidden="true" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="none"><path d={checkIcon} stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
             <span class="text-ink-700">{tip}</span>
           </li>
@@ -184,9 +183,9 @@ const checkIcon = 'M4 10.5 8 14l8-8';
     </div>
   </section>
 
-  <section class="section bg-slate-50/60">
+  <section class="section bg-bg-gray">
     <div class="container-page max-w-3xl">
-      <h2 class="text-2xl text-ink-900">Perguntas frequentes</h2>
+      <h2 class="text-ink-900">Perguntas frequentes</h2>
       <div class="mt-6">
         <FaqAccordion faqs={service.faqs} />
       </div>
@@ -195,7 +194,7 @@ const checkIcon = 'M4 10.5 8 14l8-8';
 
   <section class="section">
     <div class="container-page max-w-3xl">
-      <h2 class="text-2xl text-ink-900">Bairros e cidades atendidos</h2>
+      <h2 class="text-ink-900">Bairros e cidades atendidos</h2>
       <p class="mt-3 text-ink-700">
         Atendemos {service.shortTitle.toLowerCase()} em todos os bairros de Botucatu e nas cidades da região:{' '}
         {SITE.areaServed.map((city, index) => (
@@ -210,9 +209,9 @@ const checkIcon = 'M4 10.5 8 14l8-8';
     </div>
   </section>
 
-  <section class="section bg-slate-50/60">
+  <section class="section bg-bg-gray">
     <div class="container-page">
-      <h2 class="text-2xl text-ink-900">Outros serviços</h2>
+      <h2 class="text-ink-900">Outros serviços</h2>
       <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {otherServices.map((s) => <ServiceCard service={s} />)}
       </div>

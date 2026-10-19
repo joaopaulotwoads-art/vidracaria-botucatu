@@ -4,6 +4,7 @@ import JsonLd from '../components/JsonLd.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import WhatsappFloat from '../components/WhatsappFloat.astro';
+import BackToTop from '../components/BackToTop.astro';
 import { localBusinessSchema, websiteSchema } from '../lib/schema';
 import '../styles/global.css';
 
@@ -24,13 +25,14 @@ const { title, description, image, noindex, jsonLd = [], whatsappMessage } = Ast
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <link rel="preload" href="/fonts/fraunces-700.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/inter-800.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <meta name="theme-color" content="#006ecf" />
+    <meta name="theme-color" content="#0B3D91" />
 
     <Seo title={title} description={description} image={image} noindex={noindex} />
     <JsonLd data={localBusinessSchema()} />
@@ -45,5 +47,6 @@ const { title, description, image, noindex, jsonLd = [], whatsappMessage } = Ast
     </main>
     <Footer />
     <WhatsappFloat whatsappMessage={whatsappMessage} />
+    <BackToTop />
   </body>
 </html>

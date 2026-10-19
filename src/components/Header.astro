@@ -1,5 +1,6 @@
 ---
 import { SITE, NAV_LINKS } from '../data/site';
+import { SERVICES, servicePath } from '../data/services';
 import { waLink, DEFAULT_WHATSAPP_MESSAGE } from '../lib/whatsapp';
 
 interface Props {
@@ -10,22 +11,49 @@ const { whatsappMessage = DEFAULT_WHATSAPP_MESSAGE } = Astro.props;
 const currentPath = new URL(Astro.request.url).pathname.replace(/\/$/, '') || '/';
 ---
 
-<header class="sticky top-0 z-40 border-b border-ink-900/5 bg-white/95 backdrop-blur">
-  <div class="container-page flex h-16 items-center justify-between">
-    <a href="/" class="flex items-center gap-2.5 font-display text-lg font-semibold text-ink-900">
-      <svg aria-hidden="true" class="h-8 w-8 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="24" height="24" rx="6" fill="#006ecf" />
+<header class="sticky top-0 z-40 bg-white/97 backdrop-blur" style="box-shadow: 0 2px 8px rgba(11,27,51,.06)">
+  <div class="container-page flex h-16 items-center justify-between lg:h-20">
+    <a href="/" class="flex items-center gap-2.5">
+      <svg aria-hidden="true" class="h-10 w-10 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="7" fill="#0B3D91" />
         <path d="M6 6l6 11 6-11" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
         <path d="M8 17.5h8" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" opacity="0.55" />
       </svg>
-      <span>{SITE.shortName}</span>
+      <span class="leading-tight">
+        <span class="block text-xs font-extrabold tracking-wide text-ink-900 uppercase">Vidraçaria</span>
+        <span class="block text-sm font-semibold text-brand-600">{SITE.address.city}</span>
+      </span>
     </a>
 
     <nav aria-label="Navegação principal" class="hidden items-center gap-8 md:flex">
       {NAV_LINKS.map((link) => {
         const linkPath = link.href.replace(/\/$/, '') || '/';
         const isActive = currentPath === linkPath;
-        return (
+        const isServices = link.href === '/servicos/';
+        return isServices ? (
+          <div class="group relative">
+            <a
+              href={link.href}
+              aria-current={isActive ? 'page' : undefined}
+              class:list={[
+                'flex items-center gap-1 text-sm font-medium transition-colors hover:text-brand-600',
+                isActive ? 'text-brand-600' : 'text-ink-700',
+              ]}
+            >
+              {link.label}
+              <svg aria-hidden="true" class="h-3.5 w-3.5 transition-transform group-hover:rotate-180" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <div class="invisible absolute top-full left-1/2 z-50 w-72 -translate-x-1/2 pt-3 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
+              <div class="card grid grid-cols-2 gap-1 p-3" style="box-shadow: 0 12px 28px rgba(11,27,51,.14)">
+                {SERVICES.map((service) => (
+                  <a href={servicePath(service)} class="rounded-xl px-3 py-2 text-sm text-ink-700 transition-colors hover:bg-bg-gray hover:text-brand-600">
+                    {service.shortTitle}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        ) : (
           <a
             href={link.href}
             aria-current={isActive ? 'page' : undefined}
@@ -42,7 +70,8 @@ const currentPath = new URL(Astro.request.url).pathname.replace(/\/$/, '') || '/
 
     <div class="hidden md:block">
       <a href={waLink(whatsappMessage)} class="btn-whatsapp" target="_blank" rel="noopener">
-        Peça seu orçamento
+        <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c-5.4 0-9.8 4.4-9.8 9.8 0 1.73.45 3.4 1.3 4.88L2.1 21.8l5.06-1.33a9.75 9.75 0 0 0 4.84 1.29h.01c5.4 0 9.8-4.4 9.8-9.8s-4.4-9.76-9.81-9.76Zm5.47 14.02c-.24.57-1.21 1.09-1.65 1.17-.42.07-.95.1-1.54-.1a13 13 0 0 1-1.4-.52c-2.46-1.06-4.07-3.53-4.19-3.7-.12-.16-1-1.33-1-2.53 0-1.21.64-1.8.86-2.05.22-.25.49-.31.65-.31h.47c.15.01.35-.06.55.42.2.49.69 1.7.75 1.82.06.12.1.26.02.43-.08.16-.12.26-.24.4-.12.14-.25.31-.36.42-.13.13-.25.26-.11.5.14.25.63 1.04 1.35 1.69.93.83 1.72 1.09 1.96 1.21.25.13.39.11.53-.06.15-.16.61-.71.78-.96.16-.24.33-.2.55-.12.23.08 1.44.68 1.68.8.24.12.4.18.46.29.06.11.06.6-.14 1.17Z"/></svg>
+        Solicite Já
       </a>
     </div>
 
@@ -60,15 +89,15 @@ const currentPath = new URL(Astro.request.url).pathname.replace(/\/$/, '') || '/
     </button>
   </div>
 
-  <nav id="mobile-menu" aria-label="Navegação móvel" class="hidden border-t border-ink-900/5 bg-white md:hidden">
+  <nav id="mobile-menu" aria-label="Navegação móvel" class="hidden border-t border-line bg-white md:hidden">
     <div class="container-page flex flex-col gap-1 py-3">
       {NAV_LINKS.map((link) => (
-        <a href={link.href} class="flex items-center rounded-md px-2 py-3 text-sm font-medium text-ink-700 hover:bg-slate-50">
+        <a href={link.href} class="flex items-center rounded-md px-2 py-3 text-sm font-medium text-ink-700 hover:bg-bg-gray">
           {link.label}
         </a>
       ))}
       <a href={waLink(whatsappMessage)} class="btn-whatsapp mt-2" target="_blank" rel="noopener">
-        Peça seu orçamento
+        Solicite Já
       </a>
     </div>
   </nav>

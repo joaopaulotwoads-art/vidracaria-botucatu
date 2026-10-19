@@ -8,20 +8,27 @@ interface Props {
 const { whatsappMessage = DEFAULT_WHATSAPP_MESSAGE } = Astro.props;
 ---
 
-<section class="section bg-brand-700">
-  <div class="container-page flex flex-col items-center gap-6 text-center">
-    <h2 class="text-2xl text-white sm:text-3xl">
-      Pronto para orçar seu vidro em Botucatu?
-    </h2>
-    <p class="max-w-xl text-brand-100">
-      Fale agora pelo WhatsApp e receba atendimento rápido com um especialista.
-      Visita técnica e orçamento sem compromisso.
-    </p>
-    <div class="flex flex-col gap-3 sm:flex-row">
+<section class="section" style="background: linear-gradient(135deg, #0B3D91, #082C6B);">
+  <div class="container-page flex flex-col items-center gap-6 text-center lg:flex-row lg:items-center lg:justify-between lg:text-left">
+    <div class="flex flex-col items-center gap-5 lg:flex-row lg:items-center">
+      <span class="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-white/10">
+        <svg aria-hidden="true" class="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none"><path d="M4 13a8 8 0 0 1 16 0v4a2 2 0 0 1-2 2h-1v-6h3M4 13v4a2 2 0 0 0 2 2h1v-6H4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 19a2 2 0 0 0 2 2h1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </span>
+      <div>
+        <h2 class="text-2xl text-white sm:text-3xl">
+          Pronto para orçar seu vidro em Botucatu?
+        </h2>
+        <p class="mt-2 max-w-xl text-brand-100">
+          Fale agora pelo WhatsApp e receba atendimento rápido com um especialista.
+          Visita técnica e orçamento sem compromisso.
+        </p>
+      </div>
+    </div>
+    <div class="flex flex-shrink-0 flex-col gap-3 sm:flex-row">
       <a href={waLink(whatsappMessage)} target="_blank" rel="noopener" class="btn-whatsapp">
         Falar no WhatsApp
       </a>
-      <a href={`tel:${SITE.phoneE164}`} class="btn-secondary">
+      <a href={`tel:${SITE.phoneE164}`} class="btn-secondary border-white/20 bg-transparent text-white hover:bg-white/10">
         Ligar {SITE.phoneDisplay}
       </a>
     </div>

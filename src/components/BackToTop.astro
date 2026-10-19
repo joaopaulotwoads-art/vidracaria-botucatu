@@ -1,0 +1,25 @@
+<button
+  id="back-to-top"
+  type="button"
+  aria-label="Voltar ao topo"
+  class="invisible fixed left-4 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-brand-600 text-white opacity-0 shadow-lg transition hover:bg-brand-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700"
+  style="bottom: max(1rem, env(safe-area-inset-bottom));"
+>
+  <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<script>
+  const btn = document.getElementById('back-to-top');
+  if (btn) {
+    const toggle = () => {
+      const show = window.scrollY > 600;
+      btn.classList.toggle('opacity-0', !show);
+      btn.classList.toggle('invisible', !show);
+    };
+    window.addEventListener('scroll', toggle, { passive: true });
+    toggle();
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+</script>
