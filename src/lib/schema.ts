@@ -4,19 +4,20 @@ import { servicePath, type Service, type Faq } from '../data/services';
 export function localBusinessSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'HomeAndConstructionBusiness',
+    '@type': 'GlassAndMirrorShop',
     '@id': `${SITE.url}/#business`,
     name: SITE.shortName,
-    // TODO: legalName, address, geo, email e sameAs foram removidos daqui porque
-    // ainda são dados de exemplo em src/data/site.ts. Readicione estes campos
-    // (lendo de SITE.legalName / SITE.address / SITE.geo / SITE.email / SITE.social)
-    // assim que o cliente confirmar que são idênticos ao Google Business Profile.
+    // TODO: legalName, address e geo ainda são dados de exemplo em
+    // src/data/site.ts (não confirmados pelo cliente). Só adicione esses
+    // campos aqui depois que o cliente confirmar que são idênticos ao
+    // Google Business Profile real.
     description: SITE.description,
     url: `${SITE.url}/`,
     telephone: SITE.phoneE164,
     priceRange: SITE.priceRange,
     logo: `${SITE.url}/apple-touch-icon.png`,
     image: `${SITE.url}/og-default.jpg`,
+    sameAs: [SITE.social.instagram, SITE.social.facebook],
     areaServed: SITE.areaServed.map((city) => ({ '@type': 'City', name: city })),
     openingHoursSpecification: SITE.openingHoursSpecification,
   };

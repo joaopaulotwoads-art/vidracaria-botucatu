@@ -64,7 +64,7 @@ const whatsappMessage = serviceWhatsappMessage(service.shortTitle);
 
   <section class="container-page pb-14">
     <div class="prose-content max-w-3xl space-y-4 text-ink-700">
-      {service.intro.map((paragraph) => <p>{paragraph}</p>)}
+      {service.intro.map((paragraph) => <p set:html={paragraph} />)}
     </div>
   </section>
 

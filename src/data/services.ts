@@ -41,6 +41,7 @@ export const SERVICES: Service[] = [
     intro: [
       'O box de banheiro é o acabamento que mais valoriza a reforma do banheiro. Trabalhamos com vidro temperado de 8mm, testado e certificado, cortado sob medida para o seu espaço, sem folgas, sem vazamento e com acabamento profissional.',
       'Atendemos Botucatu e região com visita técnica para medição, projeto do box (de abrir, correr ou fixo) e instalação em até 7 dias após o fechamento do pedido.',
+      'Se você está reformando o banheiro, também fabricamos <a href="/espelhos/" class="font-semibold text-brand-600 hover:underline">espelhos sob medida</a> e outras peças em <a href="/vidro-temperado/" class="font-semibold text-brand-600 hover:underline">vidro temperado</a> para completar o ambiente.',
     ],
     benefits: [
       'Vidro temperado de 8mm, 3 a 5x mais resistente que o vidro comum',
@@ -88,6 +89,7 @@ export const SERVICES: Service[] = [
     intro: [
       'Fabricamos e instalamos espelhos sob medida para qualquer ambiente: banheiros, salas, academias, estúdios de dança, salões de beleza e closets. Cortamos no formato que você precisar: retangular, redondo, oval ou com bordas lapidadas.',
       'Trabalhamos com espelhos de diferentes espessuras e acabamentos, incluindo bordas polidas, chanfradas ou com friso decorativo.',
+      'Está reformando o banheiro? Também fabricamos <a href="/box-de-banheiro/" class="font-semibold text-brand-600 hover:underline">box de banheiro em vidro temperado</a> sob medida, além de outras peças em <a href="/vidro-temperado/" class="font-semibold text-brand-600 hover:underline">vidro temperado</a> para o mesmo ambiente.',
     ],
     benefits: [
       'Corte sob medida em qualquer formato',
@@ -130,6 +132,7 @@ export const SERVICES: Service[] = [
     intro: [
       'Fabricamos portas de vidro temperado para residências, escritórios, lojas e clínicas em Botucatu. Trabalhamos com porta de abrir, pivotante e sistemas automáticos, com ou sem caixilho de alumínio.',
       'O vidro temperado oferece segurança, transparência e uma entrada com visual mais moderno para o seu imóvel ou comércio.',
+      'Para comércios, também desenvolvemos projetos de <a href="/fachadas-comerciais/" class="font-semibold text-brand-600 hover:underline">fachadas e vitrines de vidro</a>, e para áreas internas com desnível, <a href="/guarda-corpo-de-vidro/" class="font-semibold text-brand-600 hover:underline">guarda-corpo de vidro</a>.',
     ],
     benefits: [
       'Vidro temperado de 10mm para portas pivotantes',
@@ -172,6 +175,7 @@ export const SERVICES: Service[] = [
     intro: [
       'Uma fachada de vidro bem projetada aumenta a visibilidade e atrai mais clientes para o seu comércio. Desenvolvemos projetos de vitrines e fachadas para lojas, clínicas, escritórios e fachadas de prédios comerciais em Botucatu.',
       'Trabalhamos com vidro temperado e estrutura em alumínio, atendendo desde pequenas vitrines até fachadas completas.',
+      'Além da fachada, também fabricamos <a href="/portas-de-vidro/" class="font-semibold text-brand-600 hover:underline">portas de vidro</a> para a entrada do seu comércio e peças em <a href="/vidro-temperado/" class="font-semibold text-brand-600 hover:underline">vidro temperado</a> sob medida para balcões e divisórias.',
     ],
     benefits: [
       'Projeto personalizado para cada ponto comercial',
@@ -214,6 +218,7 @@ export const SERVICES: Service[] = [
     intro: [
       'O guarda-corpo de vidro traz segurança sem bloquear a vista, sendo ideal para sacadas, escadas, mezaninos e áreas de piscina. Utilizamos vidro temperado laminado, com espessura e fixação dimensionadas conforme a norma técnica de cada aplicação.',
       'Projetamos o guarda-corpo com perfil de alumínio, inox ou fixação por sapatas, de acordo com o estilo do seu projeto.',
+      'Para sacadas, também fazemos <a href="/envidracamento-de-sacada/" class="font-semibold text-brand-600 hover:underline">envidraçamento com cortina de vidro</a>, e para áreas gourmet e varandas, <a href="/cobertura-de-vidro/" class="font-semibold text-brand-600 hover:underline">cobertura de vidro</a> sob medida.',
     ],
     benefits: [
       'Vidro temperado laminado, mais seguro contra quedas',
@@ -256,6 +261,7 @@ export const SERVICES: Service[] = [
     intro: [
       'O envidraçamento de sacada fecha o espaço com vidro temperado sem obstruir a vista, protegendo a sacada contra vento, chuva, poeira e barulho externo. É uma das soluções mais procuradas para ganhar um ambiente extra em apartamentos e casas.',
       'Trabalhamos com sistemas de cortina de vidro retrátil (de correr) ou vidro fixo, em estrutura com ou sem perfil de alumínio, conforme o projeto da sacada e o regulamento do condomínio.',
+      'Se a sacada tem peitoril baixo, também instalamos <a href="/guarda-corpo-de-vidro/" class="font-semibold text-brand-600 hover:underline">guarda-corpo de vidro</a> para mais segurança, e para áreas gourmet cobertas, veja nossa <a href="/cobertura-de-vidro/" class="font-semibold text-brand-600 hover:underline">cobertura de vidro</a>.',
     ],
     benefits: [
       'Cortina de vidro retrátil, abre totalmente para dias de sol',
@@ -303,6 +309,7 @@ export const SERVICES: Service[] = [
     intro: [
       'Cortamos e temperamos vidro sob medida para tampos de mesa, proteção de móveis, prateleiras, divisórias internas e bancadas. O vidro temperado é mais resistente a riscos e impactos do que o vidro comum, prolongando a vida útil dos seus móveis.',
       'Atendemos pedidos residenciais e comerciais, com prazos de entrega combinados conforme a espessura e o acabamento escolhido.',
+      'Também fazemos <a href="/box-de-banheiro/" class="font-semibold text-brand-600 hover:underline">box de banheiro</a> e <a href="/espelhos/" class="font-semibold text-brand-600 hover:underline">espelhos sob medida</a> com o mesmo vidro temperado, caso você precise de mais de uma peça para o projeto.',
     ],
     benefits: [
       'Corte sob medida para qualquer formato de móvel',
@@ -345,6 +352,7 @@ export const SERVICES: Service[] = [
     intro: [
       'A cobertura de vidro deixa a área externa iluminada naturalmente sem perder a proteção contra chuva, sendo uma das soluções mais procuradas para áreas gourmet, varandas, garagens e claraboias.',
       'Trabalhamos com vidro temperado laminado, fixado em estrutura de alumínio ou perfil metálico, dimensionado para suportar o peso da própria cobertura e o impacto de chuva e granizo.',
+      'Para fechar lateralmente o espaço, também fazemos <a href="/envidracamento-de-sacada/" class="font-semibold text-brand-600 hover:underline">envidraçamento de sacada</a>, e para proteger escadas e desníveis, <a href="/guarda-corpo-de-vidro/" class="font-semibold text-brand-600 hover:underline">guarda-corpo de vidro</a>.',
     ],
     benefits: [
       'Vidro temperado laminado, resistente a impacto e seguro contra queda de estilhaços',
