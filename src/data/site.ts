@@ -4,7 +4,7 @@ export const SITE = {
   name: 'Vidraçaria Botucatu',
   legalName: 'Vidraçaria Botucatu',
   shortName: 'Vidraçaria Botucatu',
-  tagline: 'Vidros e espelhos sob medida em Botucatu - SP',
+  tagline: 'Vidros e espelhos sob medida em Botucatu SP',
   description:
     'Vidraçaria em Botucatu-SP: box para banheiro, espelhos, sacadas e vidro temperado sob medida. Orçamento pelo WhatsApp. Atendemos toda a região.',
   url: 'https://vidracariabotucatu.com.br',

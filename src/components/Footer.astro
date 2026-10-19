@@ -42,7 +42,7 @@ const year = new Date().getFullYear();
     <div>
       <p class="font-semibold text-white">Contato</p>
       <ul class="mt-3 space-y-2 text-sm">
-        <li>Atendemos em {SITE.address.city} - {SITE.address.state} e região</li>
+        <li>Atendemos em {SITE.address.city} {SITE.address.state} e região</li>
         <li><a href={`tel:${SITE.phoneE164}`} class="hover:text-white">{SITE.phoneDisplay}</a></li>
       </ul>
     </div>
@@ -51,7 +51,7 @@ const year = new Date().getFullYear();
   <div class="border-t border-white/10">
     <div class="container-page flex flex-col gap-2 py-5 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
       <p>&copy; {year} {SITE.legalName}. Todos os direitos reservados.</p>
-      <p>Atendimento em {SITE.address.city} - {SITE.address.state} e região.</p>
+      <p>Atendimento em {SITE.address.city} {SITE.address.state} e região.</p>
     </div>
   </div>
 </footer>

@@ -85,7 +85,7 @@ export const SERVICES: Service[] = [
       'Seque o perfil de alumínio após a limpeza para evitar manchas de água dura com o tempo',
     ],
     commonMistakes: [
-      'Não medir o vão nos três pontos (base, meio e topo) — paredes raramente são 100% no esquadro, e isso gera folga ou vidro que não encaixa',
+      'Não medir o vão nos três pontos (base, meio e topo), já que paredes raramente são 100% no esquadro, o que gera folga ou vidro que não encaixa',
       'Escolher vidro mais fino que 8mm achando que qualquer vidro temperado serve para qualquer box',
       'Fechar o pedido sem visita técnica, só com fotos ou medidas tiradas por conta própria',
       'Não perguntar sobre o tipo de vedação (silicone estrutural) usado, essencial para não vazar água',
@@ -470,7 +470,7 @@ export const SERVICES: Service[] = [
     careTips: [
       'Limpe com produto neutro; evite objetos pontiagudos encostados no vidro',
       'Verifique anualmente o aperto das sapatas ou do perfil de fixação',
-      'Fique atento a trincas, mesmo pequenas — vidro laminado trincado deve ser avaliado',
+      'Fique atento a trincas, mesmo pequenas, pois vidro laminado trincado precisa ser avaliado',
       'Em área de piscina, enxágue o vidro com água doce após contato prolongado com água clorada',
     ],
     commonMistakes: [
@@ -663,7 +663,7 @@ export const SERVICES: Service[] = [
       'Levante a peça para mover, em vez de arrastar sobre a superfície de apoio',
     ],
     commonMistakes: [
-      'Pedir medidas erradas achando que dá para cortar o vidro depois — corte e furo precisam ser feitos antes da temperagem',
+      'Pedir medidas erradas achando que dá para cortar o vidro depois, já que corte e furo precisam ser feitos antes da temperagem',
       'Escolher espessura fina demais para o uso, como um tampo de mesa grande com vidro de 4mm',
       'Não decidir o tipo de borda e os furos necessários antes da fabricação',
       'Confundir vidro temperado com vidro laminado, que têm aplicações diferentes',
@@ -917,7 +917,7 @@ export const SERVICES: Service[] = [
       'Esquadrias de alumínio para janelas e portas de correr, com vidro temperado ou liso, em diferentes linhas e acabamentos.',
     intro: [
       'A esquadria de alumínio é a estrutura que sustenta e movimenta janelas e portas de correr. Trabalhamos com diferentes linhas de perfil, da mais simples à reforçada para vãos maiores, sempre com vidro cortado e instalado sob medida.',
-      'Fazemos o conjunto completo — esquadria e vidro — ou só a troca da esquadria mantendo o vidro existente, quando possível.',
+      'Fazemos o conjunto completo, esquadria e vidro, ou só a troca da esquadria mantendo o vidro existente, quando possível.',
       'Veja também nosso serviço de <a href="/janelas-de-vidro/" class="font-semibold text-brand-600 hover:underline">janelas de vidro</a> e de <a href="/portas-de-vidro/" class="font-semibold text-brand-600 hover:underline">portas de vidro</a>, que costumam ser contratados junto com a esquadria.',
       'A linha de perfil mais simples atende bem janelas e portas de uso comum. Já vãos maiores ou portas muito usadas pedem uma linha reforçada, com roldanas e perfis mais robustos, que custam mais mas duram mais tempo sem apresentar folga.',
     ],
@@ -966,7 +966,7 @@ export const SERVICES: Service[] = [
       {
         question: 'Qual a diferença entre as linhas de esquadria de alumínio?',
         answer:
-          'As linhas variam na espessura e no reforço do perfil — da mais simples, para vãos pequenos, até linhas reforçadas para portas e janelas maiores.',
+          'As linhas variam na espessura e no reforço do perfil, da mais simples, para vãos pequenos, até a mais reforçada, para portas e janelas maiores.',
       },
       {
         question: 'Dá pra pintar ou trocar a cor da esquadria de alumínio?',
@@ -1054,7 +1054,7 @@ export const SERVICES: Service[] = [
       'Se tiver porta embutida, lubrifique o sistema de giro ou correr',
       'Evite adesivos ou fitas diretamente no vidro jateado',
       'Passe pano levemente úmido no perfil de alumínio para remover marcas de dedo com frequência',
-      'Em jateados, evite esfregar com força — prefira panos macios para não polir o fosco',
+      'Em jateados, evite esfregar com força e prefira panos macios para não polir o fosco',
     ],
     commonMistakes: [
       'Esperar isolamento acústico total de uma parede de vidro, que não existe mesmo em vidro laminado',
@@ -1068,7 +1068,7 @@ export const SERVICES: Service[] = [
       {
         question: 'A parede de vidro isola bem o som entre os ambientes?',
         answer:
-          'O isolamento acústico é parcial — o vidro reduz o ruído, mas não isola totalmente como uma parede de alvenaria. Para mais isolamento, avaliamos opções de vidro laminado.',
+          'O isolamento acústico é parcial. O vidro reduz o ruído, mas não isola totalmente como uma parede de alvenaria. Para mais isolamento, avaliamos opções de vidro laminado.',
       },
       {
         question: 'Dá para colocar uma porta na parede de vidro?',
@@ -1098,7 +1098,7 @@ export const SERVICES: Service[] = [
       {
         question: 'Dá para fazer uma parede de vidro curva, acompanhando o formato do ambiente?',
         answer:
-          'O vidro temperado plano é o mais comum e mais em conta. Formatos curvos exigem vidro curvado especial, com custo e prazo bem maiores — avaliamos caso a caso.',
+          'O vidro temperado plano é o mais comum e mais em conta. Formatos curvos exigem vidro curvado especial, com custo e prazo bem maiores, e avaliamos cada caso.',
       },
     ],
   },
@@ -1115,7 +1115,7 @@ export const SERVICES: Service[] = [
     summary:
       'Troca de roldana, borracha de vedação e kit completo para box de banheiro, sem precisar trocar o vidro.',
     intro: [
-      'Nem sempre um box com problema precisa ser trocado inteiro. Na maioria dos casos o vidro continua bom e o problema está na roldana, na borracha de vedação ou no trilho — peças que têm conserto rápido.',
+      'Nem sempre um box com problema precisa ser trocado inteiro. Na maioria dos casos o vidro continua bom e o problema está na roldana, na borracha de vedação ou no trilho, peças que têm conserto rápido.',
       'Fazemos a troca de roldana, borracha, trilho e kits completos, além de avaliar se o vidro realmente precisa ser substituído ou se pode ser reaproveitado.',
       'Se depois da avaliação o vidro precisar ser trocado, fazemos o <a href="/box-de-banheiro/" class="font-semibold text-brand-600 hover:underline">box de banheiro</a> novo sob medida.',
       'Em geral, a roldana é a peça que mais desgasta com o uso diário, seguida pela borracha de vedação; o trilho raramente precisa ser trocado inteiro, a não ser em casos de impacto ou de instalação malfeita desde o início.',
