@@ -11,7 +11,8 @@ interface Props {
 
 const { title, description, image, noindex = false, type = 'website' } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', SITE.url);
+const canonicalPath = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const canonicalURL = new URL(canonicalPath, SITE.url);
 const ogImage = image ?? `${SITE.url}/og-default.jpg`;
 ---
 

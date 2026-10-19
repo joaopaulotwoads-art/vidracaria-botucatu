@@ -379,5 +379,5 @@ export function getServiceBySlug(slug: string): Service | undefined {
 }
 
 export function servicePath(service: Service): string {
-  return `/${service.slug}`;
+  return `/${service.slug}/`;
 }

@@ -18,7 +18,7 @@ const { service } = Astro.props;
 
 const crumbs = [
   { name: 'Início', path: '/' },
-  { name: 'Serviços', path: '/servicos' },
+  { name: 'Serviços', path: '/servicos/' },
   { name: service.shortTitle, path: servicePath(service) },
 ];
 
@@ -46,7 +46,7 @@ const whatsappMessage = serviceWhatsappMessage(service.shortTitle);
         <a href={waLink(whatsappMessage)} target="_blank" rel="noopener" class="btn-whatsapp">
           Solicitar orçamento
         </a>
-        <a href="/servicos" class="btn-secondary">Ver outros serviços</a>
+        <a href="/servicos/" class="btn-secondary">Ver outros serviços</a>
       </div>
     </div>
     <div class="overflow-hidden rounded-2xl">

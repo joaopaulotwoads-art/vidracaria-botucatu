@@ -8,7 +8,7 @@ const site = 'https://vidracariabotucatu.com.br';
 // https://astro.build/config
 export default defineConfig({
   site,
-  trailingSlash: 'never',
+  trailingSlash: 'always',
   integrations: [
     sitemap({
       changefreq: 'monthly',
