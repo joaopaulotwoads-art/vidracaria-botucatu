@@ -1,5 +1,5 @@
 import { SITE } from '../data/site';
-import { servicePath, type Service, type Faq } from '../data/services';
+import { SERVICES, servicePath, type Service, type Faq } from '../data/services';
 
 export function localBusinessSchema() {
   return {
@@ -11,6 +11,9 @@ export function localBusinessSchema() {
     // src/data/site.ts (não confirmados pelo cliente). Só adicione esses
     // campos aqui depois que o cliente confirmar que são idênticos ao
     // Google Business Profile real.
+    // NÃO adicionar aggregateRating/review até haver avaliações reais
+    // (ver componente ReviewsSection, oculto até o cliente fornecer
+    // depoimentos reais).
     description: SITE.description,
     url: `${SITE.url}/`,
     telephone: SITE.phoneE164,
@@ -18,8 +21,43 @@ export function localBusinessSchema() {
     logo: `${SITE.url}/apple-touch-icon.png`,
     image: `${SITE.url}/og-default.jpg`,
     sameAs: [SITE.social.instagram, SITE.social.facebook],
-    areaServed: SITE.areaServed.map((city) => ({ '@type': 'City', name: city })),
+    areaServed: [
+      ...SITE.areaServed.map((city) => ({ '@type': 'City', name: city })),
+      {
+        '@type': 'GeoCircle',
+        geoMidpoint: {
+          '@type': 'GeoCoordinates',
+          latitude: SITE.geo.lat,
+          longitude: SITE.geo.lng,
+        },
+        geoRadius: '50000',
+      },
+    ],
     openingHoursSpecification: SITE.openingHoursSpecification,
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Serviços de vidraçaria',
+      itemListElement: SERVICES.map((service) => ({
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: service.title,
+          url: `${SITE.url}${servicePath(service)}`,
+        },
+      })),
+    },
+  };
+}
+
+export function websiteSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${SITE.url}/#website`,
+    name: SITE.shortName,
+    url: `${SITE.url}/`,
+    publisher: { '@id': `${SITE.url}/#business` },
+    inLanguage: 'pt-BR',
   };
 }
 
@@ -46,6 +84,27 @@ export function serviceSchema(service: Service) {
     url: `${SITE.url}${servicePath(service)}`,
     provider: { '@id': `${SITE.url}/#business` },
     areaServed: SITE.areaServed.map((city) => ({ '@type': 'City', name: city })),
+  };
+}
+
+export function reviewsSchema(reviews: { name: string; rating: number; text: string }[]) {
+  const average = reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'GlassAndMirrorShop',
+    '@id': `${SITE.url}/#business`,
+    name: SITE.shortName,
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: Number(average.toFixed(1)),
+      reviewCount: reviews.length,
+    },
+    review: reviews.map((r) => ({
+      '@type': 'Review',
+      author: { '@type': 'Person', name: r.name },
+      reviewRating: { '@type': 'Rating', ratingValue: r.rating, bestRating: 5 },
+      reviewBody: r.text,
+    })),
   };
 }
 

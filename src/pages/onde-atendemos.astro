@@ -1,0 +1,97 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CtaSection from '../components/CtaSection.astro';
+import { SITE } from '../data/site';
+import { breadcrumbSchema } from '../lib/schema';
+import { DEFAULT_WHATSAPP_MESSAGE } from '../lib/whatsapp';
+
+const title = `Onde Atendemos | Bairros de Botucatu e Região | ${SITE.shortName}`;
+const description =
+  'Veja os bairros de Botucatu e as cidades da região atendidos pela nossa vidraçaria, com visita técnica para medição e orçamento sem compromisso.';
+
+const crumbs = [
+  { name: 'Início', path: '/' },
+  { name: 'Onde atendemos', path: '/onde-atendemos/' },
+];
+
+const botucatuNeighborhoods = [
+  'Centro',
+  'Vila dos Lavradores',
+  'Jardim Paraíso',
+  'Lageado',
+  'Rubião Júnior',
+  'Vila Assumpção',
+  'Jardim Bom Pastor',
+  'Cohab',
+];
+
+const cityPages = [
+  { name: 'São Manuel', path: '/sao-manuel/' },
+  { name: 'Pardinho', path: '/pardinho/' },
+  { name: 'Itatinga', path: '/itatinga/' },
+];
+
+const otherCities = SITE.areaServed.filter(
+  (city) => city !== 'Botucatu' && !cityPages.some((c) => c.name === city)
+);
+---
+
+<Layout title={title} description={description} whatsappMessage={DEFAULT_WHATSAPP_MESSAGE} jsonLd={[breadcrumbSchema(crumbs)]}>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="container-page pb-10">
+    <p class="eyebrow">Área de atendimento</p>
+    <h1 class="mt-2 text-4xl font-bold text-ink-900">Onde atendemos: bairros de Botucatu e cidades da região</h1>
+    <p class="mt-4 max-w-2xl text-ink-700">
+      Atendemos em todos os bairros de Botucatu e nas cidades vizinhas, sempre com visita técnica no local para
+      medição antes de fechar o orçamento. Não temos loja física para visitação — todo o atendimento é feito
+      diretamente no endereço da obra ou residência.
+    </p>
+  </section>
+
+  <section class="section bg-slate-50">
+    <div class="container-page">
+      <h2 class="text-2xl font-bold text-ink-900">Bairros atendidos em Botucatu</h2>
+      <p class="mt-3 max-w-2xl text-ink-700">
+        Alguns dos bairros onde já realizamos serviços de vidraçaria:
+      </p>
+      <div class="mt-6 flex flex-wrap gap-2">
+        {botucatuNeighborhoods.map((bairro) => (
+          <span class="rounded-full bg-white px-4 py-2 text-sm font-medium text-ink-700 shadow-sm">{bairro}</span>
+        ))}
+        <span class="rounded-full bg-white px-4 py-2 text-sm font-medium text-ink-700 shadow-sm">e outros bairros</span>
+      </div>
+      <p class="mt-4 text-sm text-ink-500">
+        Não encontrou o seu bairro na lista? Fale com a gente pelo WhatsApp — se é em Botucatu, muito provavelmente
+        atendemos.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-page">
+      <h2 class="text-2xl font-bold text-ink-900">Cidades da região atendidas</h2>
+      <p class="mt-3 max-w-2xl text-ink-700">
+        Além de Botucatu, atendemos as cidades vizinhas com o mesmo processo: visita técnica agendada, medição no
+        local e orçamento sem compromisso.
+      </p>
+      <div class="mt-6 grid gap-4 sm:grid-cols-3">
+        {cityPages.map((city) => (
+          <a
+            href={city.path}
+            class="rounded-2xl border border-ink-900/10 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+          >
+            <p class="font-semibold text-ink-900">{city.name}</p>
+            <p class="mt-1 text-sm text-brand-600">Ver atendimento em {city.name} →</p>
+          </a>
+        ))}
+      </div>
+      <p class="mt-6 text-ink-700">
+        Também atendemos: {otherCities.join(', ')}.
+      </p>
+    </div>
+  </section>
+
+  <CtaSection whatsappMessage={DEFAULT_WHATSAPP_MESSAGE} />
+</Layout>

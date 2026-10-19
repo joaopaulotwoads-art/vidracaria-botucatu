@@ -1,0 +1,32 @@
+---
+import JsonLd from './JsonLd.astro';
+import { REVIEWS } from '../data/reviews';
+import { reviewsSchema } from '../lib/schema';
+---
+
+{REVIEWS.length > 0 && (
+  <>
+  <section class="section bg-slate-50">
+    <div class="container-page">
+      <p class="eyebrow">Avaliações</p>
+      <h2 class="mt-2 text-3xl font-bold text-ink-900">O que nossos clientes dizem</h2>
+      <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {REVIEWS.map((review) => (
+          <div class="rounded-2xl bg-white p-6 shadow-sm">
+            <div class="flex gap-1 text-brand-600" aria-label={`Nota ${review.rating} de 5`}>
+              {Array.from({ length: 5 }).map((_, i) => (
+                <span aria-hidden="true">{i < review.rating ? '★' : '☆'}</span>
+              ))}
+            </div>
+            <p class="mt-3 text-sm text-ink-700">{review.text}</p>
+            <p class="mt-4 text-sm font-semibold text-ink-900">
+              {review.name}{review.service ? ` — ${review.service}` : ''}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  <JsonLd data={reviewsSchema(REVIEWS)} />
+  </>
+)}

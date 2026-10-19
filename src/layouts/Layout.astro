@@ -3,7 +3,7 @@ import Seo from '../components/Seo.astro';
 import JsonLd from '../components/JsonLd.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { localBusinessSchema } from '../lib/schema';
+import { localBusinessSchema, websiteSchema } from '../lib/schema';
 import '../styles/global.css';
 
 interface Props {
@@ -32,6 +32,7 @@ const { title, description, image, noindex, jsonLd = [], whatsappMessage } = Ast
 
     <Seo title={title} description={description} image={image} noindex={noindex} />
     <JsonLd data={localBusinessSchema()} />
+    <JsonLd data={websiteSchema()} />
     {jsonLd.map((item) => <JsonLd data={item} />)}
   </head>
   <body>

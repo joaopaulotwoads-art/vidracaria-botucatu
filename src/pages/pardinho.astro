@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CtaSection from '../components/CtaSection.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import { SITE } from '../data/site';
+import { SERVICES } from '../data/services';
+import { breadcrumbSchema } from '../lib/schema';
+import { DEFAULT_WHATSAPP_MESSAGE } from '../lib/whatsapp';
+
+const title = `Vidraçaria em Pardinho SP | ${SITE.shortName}`;
+const description =
+  'Vidraçaria atendendo Pardinho - SP: box de banheiro, espelhos, portas de vidro e vidro temperado sob medida, com visita técnica agendada.';
+
+const crumbs = [
+  { name: 'Início', path: '/' },
+  { name: 'Onde atendemos', path: '/onde-atendemos/' },
+  { name: 'Pardinho', path: '/pardinho/' },
+];
+
+const featuredServices = SERVICES.slice(0, 3);
+---
+
+<Layout title={title} description={description} whatsappMessage={DEFAULT_WHATSAPP_MESSAGE} jsonLd={[breadcrumbSchema(crumbs)]}>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="container-page pb-10">
+    <p class="eyebrow">Atendimento em Pardinho</p>
+    <h1 class="mt-2 text-4xl font-bold text-ink-900">Vidraçaria em Pardinho - SP</h1>
+    <p class="mt-4 max-w-2xl text-ink-700">
+      A {SITE.shortName} atende Pardinho com os mesmos serviços de vidraçaria que oferecemos em Botucatu: box de
+      banheiro, espelhos, portas de vidro, guarda-corpo, envidraçamento de sacada, cobertura de vidro e vidro
+      temperado sob medida.
+    </p>
+  </section>
+
+  <section class="section bg-slate-50">
+    <div class="container-page grid gap-8 sm:grid-cols-3">
+      <div class="rounded-2xl bg-white p-6 shadow-sm">
+        <h2 class="text-lg font-semibold text-ink-900">Distância de Botucatu</h2>
+        <p class="mt-2 text-sm text-ink-700">
+          Pardinho fica a cerca de 20 km de Botucatu, uma das cidades mais próximas da nossa base de atendimento.
+        </p>
+      </div>
+      <div class="rounded-2xl bg-white p-6 shadow-sm">
+        <h2 class="text-lg font-semibold text-ink-900">Prazo de atendimento</h2>
+        <p class="mt-2 text-sm text-ink-700">
+          Usamos o mesmo prazo médio de instalação de Botucatu, com visita técnica agendada previamente por
+          telefone ou WhatsApp.
+        </p>
+      </div>
+      <div class="rounded-2xl bg-white p-6 shadow-sm">
+        <h2 class="text-lg font-semibold text-ink-900">Tipos de obra comuns</h2>
+        <p class="mt-2 text-sm text-ink-700">
+          Pardinho é um município pequeno, com bastante residência de área rural, chácara e sítio, além das casas
+          do perímetro urbano central.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-page">
+      <h2 class="text-2xl font-bold text-ink-900">Serviços mais pedidos em Pardinho</h2>
+      <p class="mt-3 max-w-2xl text-ink-700">
+        Box de banheiro, vidro temperado para tampos e móveis, e espelhos sob medida estão entre os serviços mais
+        procurados por quem nos chama de Pardinho. Veja os detalhes de cada um:
+      </p>
+      <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {featuredServices.map((service) => <ServiceCard service={service} />)}
+      </div>
+      <a href="/servicos/" class="mt-6 inline-block font-semibold text-brand-600 hover:underline">
+        Ver todos os serviços →
+      </a>
+    </div>
+  </section>
+
+  <CtaSection whatsappMessage={DEFAULT_WHATSAPP_MESSAGE} />
+</Layout>

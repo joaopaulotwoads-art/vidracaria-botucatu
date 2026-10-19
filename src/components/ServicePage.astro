@@ -63,7 +63,8 @@ const whatsappMessage = serviceWhatsappMessage(service.shortTitle);
   </section>
 
   <section class="container-page pb-14">
-    <div class="prose-content max-w-3xl space-y-4 text-ink-700">
+    <h2 class="text-2xl font-bold text-ink-900">{service.shortTitle} em Botucatu perto de você</h2>
+    <div class="prose-content mt-4 max-w-3xl space-y-4 text-ink-700">
       {service.intro.map((paragraph) => <p set:html={paragraph} />)}
     </div>
   </section>
@@ -71,7 +72,38 @@ const whatsappMessage = serviceWhatsappMessage(service.shortTitle);
   <section class="section bg-slate-50">
     <div class="container-page grid gap-10 lg:grid-cols-2">
       <div>
-        <h2 class="text-2xl font-bold text-ink-900">Benefícios</h2>
+        <h2 class="text-2xl font-bold text-ink-900">Tipos de vidro e espessuras</h2>
+        <ul class="mt-5 space-y-3">
+          {service.typesAndThickness.map((item) => (
+            <li class="flex gap-3">
+              <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-brand-600"></span>
+              <span class="text-ink-700">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-2xl font-bold text-ink-900">Faixa de preço e o que influencia o valor</h2>
+        <p class="mt-3 text-sm text-ink-700">
+          Não trabalhamos com tabela fechada, porque o valor muda bastante conforme o projeto. O orçamento é
+          sempre feito depois da visita técnica, sem compromisso. O que mais influencia o preço:
+        </p>
+        <ul class="mt-4 space-y-3">
+          {service.priceFactors.map((factor) => (
+            <li class="flex gap-3">
+              <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-brand-600"></span>
+              <span class="text-ink-700">{factor}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-page grid gap-10 lg:grid-cols-2">
+      <div>
+        <h2 class="text-2xl font-bold text-ink-900">Por que escolher nossa vidraçaria</h2>
         <ul class="mt-5 space-y-3">
           {service.benefits.map((benefit) => (
             <li class="flex gap-3">
@@ -100,6 +132,20 @@ const whatsappMessage = serviceWhatsappMessage(service.shortTitle);
     </div>
   </section>
 
+  <section class="section bg-slate-50">
+    <div class="container-page max-w-3xl">
+      <h2 class="text-2xl font-bold text-ink-900">Cuidados e manutenção</h2>
+      <ul class="mt-5 space-y-3">
+        {service.careTips.map((tip) => (
+          <li class="flex gap-3">
+            <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-brand-600"></span>
+            <span class="text-ink-700">{tip}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
   <section class="section">
     <div class="container-page max-w-3xl">
       <h2 class="text-2xl font-bold text-ink-900">Perguntas frequentes</h2>
@@ -110,6 +156,23 @@ const whatsappMessage = serviceWhatsappMessage(service.shortTitle);
   </section>
 
   <section class="section bg-slate-50">
+    <div class="container-page max-w-3xl">
+      <h2 class="text-2xl font-bold text-ink-900">Bairros e cidades atendidos</h2>
+      <p class="mt-3 text-ink-700">
+        Atendemos {service.shortTitle.toLowerCase()} em todos os bairros de Botucatu e nas cidades da região:{' '}
+        {SITE.areaServed.map((city, index) => (
+          <>
+            {city}{index < SITE.areaServed.length - 1 ? ', ' : '.'}
+          </>
+        ))}
+      </p>
+      <a href="/onde-atendemos/" class="mt-4 inline-block font-semibold text-brand-600 hover:underline">
+        Ver bairros e cidades atendidos em detalhe →
+      </a>
+    </div>
+  </section>
+
+  <section class="section">
     <div class="container-page">
       <h2 class="text-2xl font-bold text-ink-900">Outros serviços</h2>
       <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

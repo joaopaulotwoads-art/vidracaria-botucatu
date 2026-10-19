@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import CtaSection from '../components/CtaSection.astro';
+import ReviewsSection from '../components/ReviewsSection.astro';
 import { SITE } from '../data/site';
 import { SERVICES } from '../data/services';
 import { waLink, DEFAULT_WHATSAPP_MESSAGE } from '../lib/whatsapp';
@@ -13,6 +14,22 @@ const title = 'Vidraçaria em Botucatu | Box, Espelhos e Vidro Temperado';
 const description = SITE.description;
 
 const experienceYears = SITE.experienceYears;
+
+const smallJobs = [
+  { title: 'Troca de vidro quebrado', description: 'Substituição de vidro trincado ou quebrado em janelas, portas e armários.' },
+  { title: 'Prateleiras de vidro sob medida', description: 'Corte e instalação de prateleiras de vidro temperado para qualquer ambiente.' },
+  { title: 'Nichos e vidros para armários', description: 'Vidro sob medida para nichos, armários planejados e portas de closet.' },
+  { title: 'Vidro para quadros e displays', description: 'Corte de vidro para molduras, displays e proteção de superfícies.' },
+];
+
+const botucatuNeighborhoods = [
+  'Centro',
+  'Vila dos Lavradores',
+  'Jardim Paraíso',
+  'Lageado',
+  'Rubião Júnior',
+  'Vila Assumpção',
+];
 ---
 
 <Layout title={title} description={description} whatsappMessage={DEFAULT_WHATSAPP_MESSAGE}>
@@ -121,6 +138,27 @@ const experienceYears = SITE.experienceYears;
     </div>
   </section>
 
+  <section class="section bg-slate-50">
+    <div class="container-page">
+      <p class="eyebrow">Outros serviços</p>
+      <h2 class="mt-2 text-3xl font-bold text-ink-900">Serviços menores de vidraçaria</h2>
+      <p class="mt-3 max-w-2xl text-ink-700">
+        Além dos serviços com página própria, também atendemos pedidos pontuais e trocas rápidas de vidro:
+      </p>
+      <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {smallJobs.map((job) => (
+          <div class="rounded-2xl bg-white p-5 shadow-sm">
+            <p class="font-semibold text-ink-900">{job.title}</p>
+            <p class="mt-2 text-sm text-ink-700">{job.description}</p>
+          </div>
+        ))}
+      </div>
+      <a href={waLink(DEFAULT_WHATSAPP_MESSAGE)} target="_blank" rel="noopener" class="mt-6 inline-block font-semibold text-brand-600 hover:underline">
+        Peça um orçamento desses serviços pelo WhatsApp →
+      </a>
+    </div>
+  </section>
+
   <section class="section">
     <div class="container-page">
       <p class="eyebrow">Área de atendimento</p>
@@ -135,6 +173,27 @@ const experienceYears = SITE.experienceYears;
       </div>
     </div>
   </section>
+
+  <section class="section bg-slate-50">
+    <div class="container-page">
+      <p class="eyebrow">Bairros atendidos</p>
+      <h2 class="mt-2 text-3xl font-bold text-ink-900">Bairros atendidos em Botucatu</h2>
+      <p class="mt-3 max-w-2xl text-ink-700">
+        Alguns dos bairros onde já realizamos serviços de vidraçaria:
+      </p>
+      <div class="mt-6 flex flex-wrap gap-2">
+        {botucatuNeighborhoods.map((bairro) => (
+          <span class="rounded-full bg-white px-4 py-2 text-sm font-medium text-ink-700 shadow-sm">{bairro}</span>
+        ))}
+        <span class="rounded-full bg-white px-4 py-2 text-sm font-medium text-ink-700 shadow-sm">e outros bairros</span>
+      </div>
+      <a href="/onde-atendemos/" class="mt-6 inline-block font-semibold text-brand-600 hover:underline">
+        Ver todos os bairros e cidades atendidos →
+      </a>
+    </div>
+  </section>
+
+  <ReviewsSection />
 
   <CtaSection whatsappMessage={DEFAULT_WHATSAPP_MESSAGE} />
 </Layout>
