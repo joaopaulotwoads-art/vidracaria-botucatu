@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import CtaSection from '../components/CtaSection.astro';
 import { SITE } from '../data/site';
+import { SERVICES } from '../data/services';
 import { breadcrumbSchema } from '../lib/schema';
 import { DEFAULT_WHATSAPP_MESSAGE } from '../lib/whatsapp';
 
@@ -15,15 +16,31 @@ const crumbs = [
   { name: 'Onde atendemos', path: '/onde-atendemos/' },
 ];
 
-const botucatuNeighborhoods = [
-  'Centro',
-  'Vila dos Lavradores',
-  'Jardim Paraíso',
-  'Lageado',
-  'Rubião Júnior',
-  'Vila Assumpção',
-  'Jardim Bom Pastor',
-  'Cohab',
+const regions = [
+  {
+    name: 'Centro e Vila Assumpção',
+    description:
+      'Concentram boa parte do comércio da cidade e têm mais prédios e sobrados, onde guarda-corpo de vidro e fachadas comerciais costumam aparecer mais nos pedidos.',
+    neighborhoods: ['Centro', 'Vila Assumpção'],
+  },
+  {
+    name: 'Vila dos Lavradores, Jardim Bom Pastor e Cohab',
+    description:
+      'Bairros residenciais mais populosos da cidade, com bastante reforma de casa própria — box de banheiro e vidro temperado para móveis estão entre os serviços mais pedidos.',
+    neighborhoods: ['Vila dos Lavradores', 'Jardim Bom Pastor', 'Cohab'],
+  },
+  {
+    name: 'Jardim Paraíso e Lageado',
+    description:
+      'Regiões com crescimento de condomínios e casas de dois andares nos últimos anos, onde envidraçamento de sacada e esquadrias de alumínio costumam ser bastante procurados.',
+    neighborhoods: ['Jardim Paraíso', 'Lageado'],
+  },
+  {
+    name: 'Rubião Júnior',
+    description:
+      'Região próxima ao campus da UNESP em Botucatu, com público universitário e também moradia residencial, onde já atendemos tanto repúblicas e apartamentos quanto casas de família.',
+    neighborhoods: ['Rubião Júnior'],
+  },
 ];
 
 const cityPages = [
@@ -35,6 +52,8 @@ const cityPages = [
 const otherCities = SITE.areaServed.filter(
   (city) => city !== 'Botucatu' && !cityPages.some((c) => c.name === city)
 );
+
+const featuredServices = SERVICES.slice(0, 6);
 ---
 
 <Layout title={title} description={description} whatsappMessage={DEFAULT_WHATSAPP_MESSAGE} jsonLd={[breadcrumbSchema(crumbs)]}>
@@ -46,7 +65,12 @@ const otherCities = SITE.areaServed.filter(
     <p class="mt-4 max-w-2xl text-ink-700">
       Atendemos em todos os bairros de Botucatu e nas cidades vizinhas, sempre com visita técnica no local para
       medição antes de fechar o orçamento. Não temos loja física para visitação — todo o atendimento é feito
-      diretamente no endereço da obra ou residência.
+      diretamente no endereço da obra ou residência, com horário combinado por telefone ou WhatsApp.
+    </p>
+    <p class="mt-4 max-w-2xl text-ink-700">
+      O processo é o mesmo em qualquer ponto da nossa área de atendimento: primeiro contato pelo WhatsApp ou
+      telefone, visita técnica gratuita para medição, orçamento fechado antes da fabricação e, depois da aprovação,
+      instalação feita pelo próprio vidraceiro.
     </p>
   </section>
 
@@ -54,15 +78,18 @@ const otherCities = SITE.areaServed.filter(
     <div class="container-page">
       <h2 class="text-2xl font-bold text-ink-900">Bairros atendidos em Botucatu</h2>
       <p class="mt-3 max-w-2xl text-ink-700">
-        Alguns dos bairros onde já realizamos serviços de vidraçaria:
+        Já atendemos em praticamente todos os bairros da cidade, de projetos residenciais simples a comércios de
+        maior porte. Alguns exemplos, agrupados por região:
       </p>
-      <div class="mt-6 flex flex-wrap gap-2">
-        {botucatuNeighborhoods.map((bairro) => (
-          <span class="rounded-full bg-white px-4 py-2 text-sm font-medium text-ink-700 shadow-sm">{bairro}</span>
+      <div class="mt-8 grid gap-6 sm:grid-cols-2">
+        {regions.map((region) => (
+          <div class="rounded-2xl bg-white p-6 shadow-sm">
+            <p class="font-semibold text-ink-900">{region.name}</p>
+            <p class="mt-2 text-sm text-ink-700">{region.description}</p>
+          </div>
         ))}
-        <span class="rounded-full bg-white px-4 py-2 text-sm font-medium text-ink-700 shadow-sm">e outros bairros</span>
       </div>
-      <p class="mt-4 text-sm text-ink-500">
+      <p class="mt-6 text-sm text-ink-500">
         Não encontrou o seu bairro na lista? Fale com a gente pelo WhatsApp — se é em Botucatu, muito provavelmente
         atendemos.
       </p>
@@ -74,7 +101,8 @@ const otherCities = SITE.areaServed.filter(
       <h2 class="text-2xl font-bold text-ink-900">Cidades da região atendidas</h2>
       <p class="mt-3 max-w-2xl text-ink-700">
         Além de Botucatu, atendemos as cidades vizinhas com o mesmo processo: visita técnica agendada, medição no
-        local e orçamento sem compromisso.
+        local e orçamento sem compromisso. Para São Manuel, Pardinho e Itatinga, fizemos uma página específica com
+        mais detalhes sobre o atendimento em cada cidade:
       </p>
       <div class="mt-6 grid gap-4 sm:grid-cols-3">
         {cityPages.map((city) => (
@@ -88,8 +116,32 @@ const otherCities = SITE.areaServed.filter(
         ))}
       </div>
       <p class="mt-6 text-ink-700">
-        Também atendemos: {otherCities.join(', ')}.
+        Também atendemos, sem página específica: {otherCities.join(', ')}. O processo é o mesmo — visita técnica
+        agendada a partir de Botucatu, com o mesmo prazo médio de instalação. Se a sua cidade está nessa lista e
+        você tem dúvida se atendemos o seu endereço específico, é só perguntar pelo WhatsApp antes de pedir o
+        orçamento.
       </p>
+    </div>
+  </section>
+
+  <section class="section bg-slate-50">
+    <div class="container-page">
+      <h2 class="text-2xl font-bold text-ink-900">Serviços disponíveis em toda a área de atendimento</h2>
+      <p class="mt-3 max-w-2xl text-ink-700">
+        Todos os nossos serviços de vidraçaria estão disponíveis em qualquer bairro ou cidade da nossa área de
+        atendimento, não só em Botucatu. O preço pode variar conforme o deslocamento, mas o processo de visita
+        técnica, orçamento e fabricação é sempre o mesmo:
+      </p>
+      <ul class="mt-5 grid gap-x-8 gap-y-2 sm:grid-cols-2">
+        {featuredServices.map((service) => (
+          <li>
+            <a href={`/${service.slug}/`} class="font-semibold text-brand-600 hover:underline">{service.shortTitle}</a>
+          </li>
+        ))}
+      </ul>
+      <a href="/servicos/" class="mt-5 inline-block font-semibold text-brand-600 hover:underline">
+        Ver todos os serviços →
+      </a>
     </div>
   </section>
 

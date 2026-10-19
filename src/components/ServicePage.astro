@@ -132,6 +132,20 @@ const whatsappMessage = serviceWhatsappMessage(service.shortTitle);
     </div>
   </section>
 
+  <section class="section">
+    <div class="container-page max-w-3xl">
+      <h2 class="text-2xl font-bold text-ink-900">Erros comuns ao contratar {service.shortTitle.toLowerCase()}</h2>
+      <ul class="mt-5 space-y-3">
+        {service.commonMistakes.map((mistake) => (
+          <li class="flex gap-3">
+            <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-brand-600"></span>
+            <span class="text-ink-700">{mistake}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
   <section class="section bg-slate-50">
     <div class="container-page max-w-3xl">
       <h2 class="text-2xl font-bold text-ink-900">Cuidados e manutenção</h2>

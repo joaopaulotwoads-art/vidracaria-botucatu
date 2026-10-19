@@ -108,6 +108,19 @@ export function reviewsSchema(reviews: { name: string; rating: number; text: str
   };
 }
 
+export function citySchema(cityName: string, cityPath: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: 'Vidraçaria',
+    name: `Serviços de vidraçaria em ${cityName}`,
+    description: `Fabricação e instalação de vidro temperado sob medida (box de banheiro, espelhos, portas de vidro e outros) para ${cityName} e região, com visita técnica agendada a partir de Botucatu.`,
+    url: `${SITE.url}${cityPath}`,
+    provider: { '@id': `${SITE.url}/#business` },
+    areaServed: { '@type': 'City', name: cityName },
+  };
+}
+
 export function faqSchema(faqs: Faq[]) {
   return {
     '@context': 'https://schema.org',

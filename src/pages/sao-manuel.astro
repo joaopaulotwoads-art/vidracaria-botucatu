@@ -1,16 +1,19 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import CtaSection from '../components/CtaSection.astro';
 import ServiceCard from '../components/ServiceCard.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
 import { SITE } from '../data/site';
-import { SERVICES } from '../data/services';
-import { breadcrumbSchema } from '../lib/schema';
+import { getServiceBySlug } from '../data/services';
+import { breadcrumbSchema, citySchema, faqSchema } from '../lib/schema';
 import { DEFAULT_WHATSAPP_MESSAGE } from '../lib/whatsapp';
+import guardaCorpoFoto from '../assets/images/guarda-corpo-vidro-escada-botucatu-sp.jpg';
 
 const title = `Vidraçaria em São Manuel SP | ${SITE.shortName}`;
 const description =
-  'Vidraçaria atendendo São Manuel - SP: box de banheiro, espelhos, portas de vidro e vidro temperado sob medida, com visita técnica agendada.';
+  'Vidraçaria atendendo São Manuel - SP: box de banheiro, guarda-corpo, portas de vidro e vidro temperado sob medida, com visita técnica agendada a partir de Botucatu.';
 
 const crumbs = [
   { name: 'Início', path: '/' },
@@ -18,61 +21,108 @@ const crumbs = [
   { name: 'São Manuel', path: '/sao-manuel/' },
 ];
 
-const featuredServices = SERVICES.slice(0, 3);
+const faqs = [
+  {
+    question: 'Quanto tempo depois da visita técnica a instalação é feita em São Manuel?',
+    answer: 'Seguimos o mesmo prazo médio de Botucatu, combinado com você depois da aprovação do orçamento e da medição no local.',
+  },
+  {
+    question: 'É preciso ir até Botucatu para fechar o orçamento?',
+    answer: 'Não. Depois da visita técnica em São Manuel, toda a negociação pode continuar por telefone ou WhatsApp, sem necessidade de deslocamento até Botucatu.',
+  },
+  {
+    question: 'Vocês atendem chácaras e sítios na região rural de São Manuel, não só a área urbana?',
+    answer: 'Sim, atendemos tanto a área urbana quanto propriedades rurais na região, desde que dentro da nossa área de atendimento.',
+  },
+];
+
+const featured = ['guarda-corpo-de-vidro', 'portas-de-vidro', 'fachadas-comerciais']
+  .map((slug) => getServiceBySlug(slug))
+  .filter((s) => s !== undefined);
 ---
 
-<Layout title={title} description={description} whatsappMessage={DEFAULT_WHATSAPP_MESSAGE} jsonLd={[breadcrumbSchema(crumbs)]}>
+<Layout
+  title={title}
+  description={description}
+  whatsappMessage={DEFAULT_WHATSAPP_MESSAGE}
+  jsonLd={[breadcrumbSchema(crumbs), citySchema('São Manuel', '/sao-manuel/'), faqSchema(faqs)]}
+>
   <Breadcrumbs items={crumbs} />
 
-  <section class="container-page pb-10">
-    <p class="eyebrow">Atendimento em São Manuel</p>
-    <h1 class="mt-2 text-4xl font-bold text-ink-900">Vidraçaria em São Manuel - SP</h1>
-    <p class="mt-4 max-w-2xl text-ink-700">
-      A {SITE.shortName} atende São Manuel e região com os mesmos serviços de vidraçaria que oferecemos em Botucatu:
-      box de banheiro, espelhos, portas de vidro, fachadas comerciais, guarda-corpo, envidraçamento de sacada,
-      cobertura de vidro e vidro temperado sob medida.
-    </p>
+  <section class="container-page grid gap-10 pb-10 lg:grid-cols-2 lg:items-center">
+    <div>
+      <p class="eyebrow">Atendimento em São Manuel</p>
+      <h1 class="mt-2 text-4xl font-bold text-ink-900">Vidraçaria em São Manuel - SP</h1>
+      <p class="mt-4 text-ink-700">
+        São Manuel fica a cerca de 30 km de Botucatu, e é uma das cidades da região de onde mais recebemos pedidos
+        de <a href="/guarda-corpo-de-vidro/" class="font-semibold text-brand-600 hover:underline">guarda-corpo de vidro</a>,
+        <a href="/portas-de-vidro/" class="font-semibold text-brand-600 hover:underline">portas de vidro</a> e
+        <a href="/box-de-banheiro/" class="font-semibold text-brand-600 hover:underline">box de banheiro</a>.
+        Trabalhamos lá com o mesmo processo de Botucatu: medição no local, fabricação sob medida e instalação feita
+        pelo próprio vidraceiro.
+      </p>
+      <p class="mt-4 text-ink-700">
+        A cidade tem um centro com comércio ativo e bairros residenciais com bastante sobrado e casa de dois
+        andares, onde o guarda-corpo de vidro em sacadas e escadas é bastante procurado. O centro concentra os
+        prédios e sobrados mais altos, enquanto os bairros mais afastados têm predominância de casas térreas. Na
+        zona rural, perto das plantações de cana-de-açúcar e laranja que movimentam a economia local, atendemos
+        chácaras e sítios que costumam pedir cobertura de vidro para área gourmet e envidraçamento de varanda.
+      </p>
+      <p class="mt-4 text-ink-700">
+        Além dos serviços com página própria, também fazemos em São Manuel pedidos pontuais, como troca de vidro
+        quebrado e prateleiras de vidro sob medida. Veja a lista completa de cidades e bairros que cobrimos em
+        <a href="/onde-atendemos/" class="font-semibold text-brand-600 hover:underline">onde atendemos</a>.
+      </p>
+    </div>
+    <div class="overflow-hidden rounded-2xl">
+      <Image
+        src={guardaCorpoFoto}
+        alt="Guarda-corpo de vidro temperado com estrutura em alumínio branco em sacada residencial"
+        width={1200}
+        height={900}
+        loading="eager"
+        class="h-full w-full object-cover"
+      />
+    </div>
   </section>
 
   <section class="section bg-slate-50">
-    <div class="container-page grid gap-8 sm:grid-cols-3">
-      <div class="rounded-2xl bg-white p-6 shadow-sm">
-        <h2 class="text-lg font-semibold text-ink-900">Distância de Botucatu</h2>
-        <p class="mt-2 text-sm text-ink-700">
-          São Manuel fica a cerca de 30 km de Botucatu, um trajeto rápido que fazemos para a visita técnica e
-          também para a instalação.
-        </p>
-      </div>
-      <div class="rounded-2xl bg-white p-6 shadow-sm">
-        <h2 class="text-lg font-semibold text-ink-900">Prazo de atendimento</h2>
-        <p class="mt-2 text-sm text-ink-700">
-          Usamos o mesmo prazo médio de instalação de Botucatu, com visita técnica agendada previamente por
-          telefone ou WhatsApp.
-        </p>
-      </div>
-      <div class="rounded-2xl bg-white p-6 shadow-sm">
-        <h2 class="text-lg font-semibold text-ink-900">Tipos de obra comuns</h2>
-        <p class="mt-2 text-sm text-ink-700">
-          Atendemos tanto residências urbanas na cidade quanto chácaras e sítios na área rural de São Manuel, região
-          conhecida pela produção agrícola.
-        </p>
-      </div>
+    <div class="container-page max-w-3xl">
+      <h2 class="text-2xl font-bold text-ink-900">Como funciona a visita técnica vinda de Botucatu</h2>
+      <p class="mt-4 text-ink-700">
+        Depois do primeiro contato pelo WhatsApp ou telefone, agendamos um horário para ir até São Manuel medir o
+        espaço pessoalmente — não fazemos orçamento à distância baseado só em fotos, porque uma medida errada custa
+        caro na hora da fabricação. Na mesma visita já conversamos sobre o tipo de vidro, o acabamento e o prazo.
+        Depois da aprovação, a peça é fabricada em Botucatu e a instalação é agendada para outra data, sempre
+        combinada com você conforme a disponibilidade. Como o trajeto até São Manuel é curto, normalmente
+        conseguimos encaixar a visita técnica dentro da mesma semana do primeiro contato, dependendo da nossa
+        agenda na região naquele momento.
+      </p>
     </div>
   </section>
 
   <section class="section">
     <div class="container-page">
-      <h2 class="text-2xl font-bold text-ink-900">Serviços mais pedidos em São Manuel</h2>
+      <h2 class="text-2xl font-bold text-ink-900">Serviços mais procurados em São Manuel</h2>
       <p class="mt-3 max-w-2xl text-ink-700">
-        Box de banheiro, espelhos sob medida e portas de vidro estão entre os serviços mais procurados por quem nos
-        chama de São Manuel. Veja os detalhes de cada um:
+        Pelo perfil da cidade, com bastante sobrado residencial e comércio ativo no centro, estes são os serviços
+        que mais recebem pedido de moradores e comerciantes de São Manuel:
       </p>
       <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {featuredServices.map((service) => <ServiceCard service={service} />)}
+        {featured.map((service) => <ServiceCard service={service} />)}
       </div>
       <a href="/servicos/" class="mt-6 inline-block font-semibold text-brand-600 hover:underline">
         Ver todos os serviços →
       </a>
+    </div>
+  </section>
+
+  <section class="section bg-slate-50">
+    <div class="container-page max-w-3xl">
+      <h2 class="text-2xl font-bold text-ink-900">Perguntas frequentes sobre o atendimento em São Manuel</h2>
+      <div class="mt-6">
+        <FaqAccordion faqs={faqs} />
+      </div>
     </div>
   </section>
 
