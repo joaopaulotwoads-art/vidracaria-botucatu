@@ -1,5 +1,5 @@
 import { SITE } from '../data/site';
-import type { Service, Faq } from '../data/services';
+import { servicePath, type Service, type Faq } from '../data/services';
 
 export function localBusinessSchema() {
   return {
@@ -42,7 +42,7 @@ export function serviceSchema(service: Service) {
     serviceType: service.shortTitle,
     name: service.title,
     description: service.metaDescription,
-    url: `${SITE.url}/servicos/${service.slug}`,
+    url: `${SITE.url}${servicePath(service)}`,
     provider: { '@id': `${SITE.url}/#business` },
     areaServed: SITE.areaServed.map((city) => ({ '@type': 'City', name: city })),
   };

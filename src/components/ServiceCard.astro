@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import type { Service } from '../data/services';
+import { servicePath } from '../data/services';
 
 interface Props {
   service: Service;
@@ -9,7 +10,7 @@ const { service } = Astro.props;
 ---
 
 <a
-  href={`/servicos/${service.slug}`}
+  href={servicePath(service)}
   class="group flex flex-col overflow-hidden rounded-2xl border border-ink-900/5 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md"
 >
   <div class="aspect-[4/3] overflow-hidden">

@@ -377,3 +377,10 @@ export const SERVICES: Service[] = [
 export function getServiceBySlug(slug: string): Service | undefined {
   return SERVICES.find((s) => s.slug === slug);
 }
+
+// Serviços com URL direta na raiz do site, sem o prefixo /servicos.
+const ROOT_LEVEL_SLUGS = new Set(['cobertura-de-vidro']);
+
+export function servicePath(service: Service): string {
+  return ROOT_LEVEL_SLUGS.has(service.slug) ? `/${service.slug}` : `/servicos/${service.slug}`;
+}

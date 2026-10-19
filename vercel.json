@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/servicos/cobertura-de-vidro",
+      "destination": "/cobertura-de-vidro",
+      "permanent": true
+    }
+  ]
+}
