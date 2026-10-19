@@ -6,6 +6,7 @@ import fachadaComercial from '../assets/images/fachada-comercial-vidro-botucatu-
 import guardaCorpo from '../assets/images/guarda-corpo-vidro-escada-botucatu-sp.jpg';
 import vidroTemperadoTampo from '../assets/images/vidro-temperado-tampo-mesa-botucatu-sp.jpg';
 import envidracamentoSacada from '../assets/images/envidracamento-sacada-cortina-vidro-botucatu-sp.jpg';
+import coberturaVidro from '../assets/images/cobertura-vidro-residencial-botucatu-sp.jpg';
 
 export type Faq = { question: string; answer: string };
 
@@ -34,7 +35,7 @@ export const SERVICES: Service[] = [
       'Box de vidro temperado sob medida em Botucatu: modelos de correr, de abrir e até o teto. Instalação profissional e orçamento rápido pelo WhatsApp.',
     heroImage: boxBanheiro,
     heroImageAlt:
-      'Box de banheiro de vidro temperado instalado em banheiro moderno com acabamento em branco',
+      'Box de banheiro de vidro temperado com perfil preto instalado em banheiro com revestimento em mármore',
     summary:
       'Box de vidro temperado sob medida, com instalação rápida e vedação que evita vazamento de água.',
     intro: [
@@ -123,7 +124,7 @@ export const SERVICES: Service[] = [
       'Portas de vidro temperado para residências e comércios em Botucatu: pivotante, de abrir ou automática. Projeto, fabricação e instalação.',
     heroImage: portaVidro,
     heroImageAlt:
-      'Entrada de prédio moderno com porta de vidro temperado e estrutura em alumínio',
+      'Porta de vidro de correr com estrutura em alumínio branco e bandeira superior em entrada residencial',
     summary:
       'Portas de vidro temperado para entradas residenciais e comerciais, com ou sem estrutura de alumínio.',
     intro: [
@@ -207,7 +208,7 @@ export const SERVICES: Service[] = [
       'Guarda-corpo de vidro temperado ou laminado em Botucatu para escadas, sacadas e mezaninos. Segurança e acabamento moderno. Orçamento pelo WhatsApp.',
     heroImage: guardaCorpo,
     heroImageAlt:
-      'Escada moderna com guarda-corpo de vidro temperado e estrutura metálica',
+      'Sacada de casa com guarda-corpo de vidro temperado e estrutura em alumínio branco',
     summary:
       'Guarda-corpo de vidro temperado para sacadas, escadas e piscinas, com fixação segura e certificada.',
     intro: [
@@ -326,6 +327,48 @@ export const SERVICES: Service[] = [
         question: 'O vidro temperado pode substituir o tampo de madeira de um móvel antigo?',
         answer:
           'Sim, é uma solução comum para proteger e dar um novo visual a móveis antigos, além de facilitar a limpeza do dia a dia.',
+      },
+    ],
+  },
+  {
+    slug: 'cobertura-de-vidro',
+    title: 'Cobertura de Vidro em Botucatu',
+    shortTitle: 'Cobertura de Vidro',
+    metaTitle: 'Cobertura de Vidro em Botucatu SP | Vidraçaria Botucatu',
+    metaDescription:
+      'Cobertura de vidro temperado em Botucatu para áreas gourmet, varandas e claraboias. Estrutura em alumínio ou aço, com garantia e orçamento sem compromisso.',
+    heroImage: coberturaVidro,
+    heroImageAlt:
+      'Cobertura de vidro temperado instalada sobre área externa residencial, vista de cima',
+    summary:
+      'Cobertura de vidro temperado para áreas gourmet, varandas e claraboias, com estrutura em alumínio ou aço.',
+    intro: [
+      'A cobertura de vidro deixa a área externa iluminada naturalmente sem perder a proteção contra chuva, sendo uma das soluções mais procuradas para áreas gourmet, varandas, garagens e claraboias.',
+      'Trabalhamos com vidro temperado laminado, fixado em estrutura de alumínio ou perfil metálico, dimensionado para suportar o peso da própria cobertura e o impacto de chuva e granizo.',
+    ],
+    benefits: [
+      'Vidro temperado laminado, resistente a impacto e seguro contra queda de estilhaços',
+      'Estrutura em alumínio ou aço, conforme o vão e o projeto',
+      'Mantém a luminosidade natural do ambiente',
+      'Opção com película de controle solar para reduzir o calor',
+      'Indicado para áreas gourmet, varandas, garagens e claraboias',
+    ],
+    process: [
+      { title: 'Visita técnica', description: 'Medimos o vão e avaliamos a estrutura de apoio para dimensionar a cobertura.' },
+      { title: 'Projeto e orçamento', description: 'Definimos espessura do vidro, tipo de estrutura e enviamos o orçamento detalhado.' },
+      { title: 'Fabricação', description: 'O vidro laminado é cortado e a estrutura preparada sob medida para o vão.' },
+      { title: 'Instalação', description: 'Instalamos a cobertura com vedação e teste de escoamento de água antes da entrega.' },
+    ],
+    faqs: [
+      {
+        question: 'A cobertura de vidro esquenta o ambiente?',
+        answer:
+          'Pode esquentar mais que uma cobertura opaca, mas isso é reduzido com película de controle solar ou vidro de baixo fator solar, que recomendamos conforme a orientação do sol no local.',
+      },
+      {
+        question: 'O vidro da cobertura é seguro contra quebra?',
+        answer:
+          'Sim. Usamos vidro laminado, que mesmo se trincado permanece preso à película interna, evitando queda de estilhaços sobre quem está embaixo.',
       },
     ],
   },
