@@ -6,7 +6,7 @@ import CtaSection from '../components/CtaSection.astro';
 import { SITE } from '../data/site';
 import { SERVICES } from '../data/services';
 import { waLink, DEFAULT_WHATSAPP_MESSAGE } from '../lib/whatsapp';
-import fachadaVidroModerna from '../assets/images/fachada-vidro-moderna-botucatu-sp.jpg';
+import coberturaVidroResidencial from '../assets/images/cobertura-vidro-residencial-botucatu-sp.jpg';
 import instalacaoVidroResidencial from '../assets/images/instalacao-vidro-residencial-botucatu-sp.jpg';
 
 const title = 'Vidraçaria em Botucatu | Box, Espelhos e Vidro Temperado';
@@ -18,10 +18,10 @@ const yearsActive = new Date().getFullYear() - SITE.foundingYear;
 <Layout title={title} description={description} whatsappMessage={DEFAULT_WHATSAPP_MESSAGE}>
   <section class="relative overflow-hidden bg-ink-900">
     <Image
-      src={fachadaVidroModerna}
-      alt="Fachada residencial com parede de vidro temperado do piso ao teto e estrutura em alumínio branco"
-      width={2000}
-      height={1333}
+      src={coberturaVidroResidencial}
+      alt="Cobertura de vidro temperado instalada sobre área residencial em Botucatu"
+      width={1599}
+      height={1200}
       loading="eager"
       fetchpriority="high"
       class="absolute inset-0 h-full w-full object-cover opacity-30"
