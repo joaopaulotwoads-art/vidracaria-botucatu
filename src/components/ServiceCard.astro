@@ -11,24 +11,25 @@ const { service } = Astro.props;
 
 <a
   href={servicePath(service)}
-  class="group flex flex-col overflow-hidden rounded-2xl border border-ink-900/5 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+  class="glass-panel group flex flex-col transition hover:border-ink-900/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700"
 >
-  <div class="aspect-[4/3] overflow-hidden">
+  <div class="relative aspect-[4/3] overflow-hidden border-b border-ink-900/8">
     <Image
       src={service.heroImage}
       alt={service.heroImageAlt}
       width={640}
       height={480}
       loading="lazy"
-      class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+      class="h-full w-full object-cover"
     />
+    <div class="glass-sheen opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
   </div>
-  <div class="flex flex-1 flex-col p-5">
-    <h3 class="text-lg font-semibold text-ink-900">{service.shortTitle}</h3>
-    <p class="mt-2 flex-1 text-sm leading-relaxed text-ink-700">{service.summary}</p>
-    <span class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-600 group-hover:gap-2">
+  <div class="flex flex-1 flex-col p-6">
+    <h3 class="text-lg text-ink-900">{service.shortTitle}</h3>
+    <p class="mt-2 flex-1 text-[15px] leading-relaxed text-ink-700">{service.summary}</p>
+    <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600">
       Ver detalhes
-      <svg aria-hidden="true" class="h-4 w-4 transition group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg aria-hidden="true" class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </span>
   </div>
 </a>
