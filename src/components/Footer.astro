@@ -42,7 +42,8 @@ const year = new Date().getFullYear();
     <div>
       <p class="text-xs font-semibold uppercase tracking-wide text-slate-400">Contato</p>
       <ul class="mt-4 space-y-2.5 text-sm">
-        <li class="text-slate-400">Atendemos em {SITE.address.city} {SITE.address.state} e região</li>
+        <li class="text-slate-400">{SITE.address.street} - {SITE.address.neighborhood}, {SITE.address.city}/{SITE.address.state}</li>
+        <li class="text-slate-400">Atendemos {SITE.address.city} {SITE.address.state} e região</li>
         <li><a href={`tel:${SITE.phoneE164}`} class="inline-block py-0.5 transition-colors hover:text-white">{SITE.phoneDisplay}</a></li>
       </ul>
     </div>

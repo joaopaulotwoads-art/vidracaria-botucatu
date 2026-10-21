@@ -7,10 +7,6 @@ export function localBusinessSchema() {
     '@type': 'GlassAndMirrorShop',
     '@id': `${SITE.url}/#business`,
     name: SITE.shortName,
-    // TODO: legalName, address e geo ainda são dados de exemplo em
-    // src/data/site.ts (não confirmados pelo cliente). Só adicione esses
-    // campos aqui depois que o cliente confirmar que são idênticos ao
-    // Google Business Profile real.
     // NÃO adicionar aggregateRating/review até haver avaliações reais
     // (ver componente ReviewsSection, oculto até o cliente fornecer
     // depoimentos reais).
@@ -21,6 +17,19 @@ export function localBusinessSchema() {
     logo: `${SITE.url}/apple-touch-icon.png`,
     image: `${SITE.url}/og-default.jpg`,
     sameAs: [SITE.social.instagram, SITE.social.facebook],
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: SITE.address.street,
+      addressLocality: SITE.address.city,
+      addressRegion: SITE.address.state,
+      postalCode: SITE.address.zip,
+      addressCountry: SITE.address.country,
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: SITE.geo.lat,
+      longitude: SITE.geo.lng,
+    },
     areaServed: [
       ...SITE.areaServed.map((city) => ({ '@type': 'City', name: city })),
       {

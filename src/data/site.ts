@@ -12,26 +12,26 @@ export const SITE = {
   phoneE164: '+5514981651674',
   whatsappDisplay: '(14) 98165-1674',
   whatsappNumber: '5514981651674',
-  // TODO: email, address e geo abaixo ainda são dados de exemplo (não
-  // confirmados pelo cliente). Por isso NÃO são incluídos no schema.org
-  // LocalBusiness (src/lib/schema.ts) — só volte a adicioná-los lá depois de
-  // confirmar que são idênticos ao Google Business Profile real. O cliente
-  // confirmou que não há endereço físico para visitação (atende só por
-  // área), por isso o endereço de rua também não aparece na UI. O e-mail
-  // continua removido da UI até ter um e-mail real confirmado.
+  // TODO: email ainda é um dado de exemplo (não confirmado pelo cliente),
+  // por isso continua removido da UI até ter um e-mail real confirmado.
+  // Endereço confirmado pelo cliente em 2026-10-21 (real, usado no
+  // schema.org e exibido publicamente no rodapé e na página de contato).
+  // Geo: coordenadas aproximadas (nível de rua, via geocodificação), não
+  // confirmadas no Google Business Profile — ajustar se o cliente tiver as
+  // coordenadas exatas do GBP.
   email: 'contato@vidracariabotucatu.com.br',
   address: {
-    street: 'Rua Amando de Barros, 1255',
-    neighborhood: 'Vila dos Lavradores',
+    street: 'R. Mario Guimarães, 578',
+    neighborhood: 'Vila Nova',
     city: 'Botucatu',
     state: 'SP',
     stateFull: 'São Paulo',
-    zip: '18602-410',
+    zip: '18608-230',
     country: 'BR',
   },
   geo: {
-    lat: -22.8838,
-    lng: -48.4453,
+    lat: -22.866,
+    lng: -48.4565,
   },
   hours: [
     { days: 'Segunda a Sexta', time: '08:00 – 18:00' },
@@ -69,7 +69,7 @@ export const SITE = {
     facebook: 'https://www.facebook.com/vidracariabotucatu',
   },
   mapEmbedSrc:
-    'https://www.google.com/maps?q=Botucatu,SP&output=embed',
+    'https://www.google.com/maps?q=R.+Mario+Guimar%C3%A3es,+578+-+Vila+Nova,+Botucatu+-+SP,+18608-230&output=embed',
 } as const;
 
 export const NAV_LINKS = [

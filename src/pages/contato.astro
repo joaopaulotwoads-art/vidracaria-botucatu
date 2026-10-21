@@ -96,7 +96,8 @@ const crumbs = [
       <div class="rounded-[22px] border border-line p-6">
         <h2 class="text-lg font-semibold text-ink-900">Informações de contato</h2>
         <ul class="mt-4 space-y-3 text-sm text-ink-700">
-          <li><strong class="text-ink-900">Área de atendimento:</strong> {SITE.address.city}/{SITE.address.state} e região (atendimento com visita técnica, sem loja física para visitação)</li>
+          <li><strong class="text-ink-900">Endereço:</strong> {SITE.address.street} - {SITE.address.neighborhood}, {SITE.address.city}/{SITE.address.state}, {SITE.address.zip}</li>
+          <li><strong class="text-ink-900">Área de atendimento:</strong> {SITE.address.city}/{SITE.address.state} e região</li>
           <li><strong class="text-ink-900">Telefone:</strong> <a class="text-brand-600 hover:underline" href={`tel:${SITE.phoneE164}`}>{SITE.phoneDisplay}</a></li>
           <li><strong class="text-ink-900">WhatsApp:</strong> <a class="text-brand-600 hover:underline" href={waLink(DEFAULT_WHATSAPP_MESSAGE)} target="_blank" rel="noopener">{SITE.whatsappDisplay}</a></li>
         </ul>
