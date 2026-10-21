@@ -45,7 +45,7 @@ export const SERVICES: Service[] = [
       'Box de vidro temperado sob medida, com instalação rápida e vedação que evita vazamento de água.',
     intro: [
       'O box de banheiro é o acabamento que mais valoriza a reforma do banheiro. Trabalhamos com vidro temperado de 8mm, de fornecedor com procedência, cortado sob medida para o seu espaço, sem folgas, sem vazamento e com acabamento profissional.',
-      'Atendemos Botucatu e região com visita técnica para medição, projeto do box (de abrir, correr ou fixo) e instalação em até 7 dias após o fechamento do pedido.',
+      'Atendemos Botucatu e região com visita técnica para medição, projeto do box (de abrir, correr ou fixo) e instalação em até 15 dias após o fechamento do pedido.',
       'Se você está reformando o banheiro, também fabricamos <a href="/espelhos/" class="font-semibold text-brand-600 hover:underline">espelhos sob medida</a> e outras peças em <a href="/vidro-temperado/" class="font-semibold text-brand-600 hover:underline">vidro temperado</a> para completar o ambiente.',
       'Na hora de escolher, a principal decisão é entre o modelo de correr e o de abrir: o de correr ocupa menos espaço e costuma ser mais em conta, enquanto o de abrir facilita a limpeza e dá mais sensação de amplitude, mas exige espaço livre na frente para abrir a folha.',
     ],
@@ -96,7 +96,7 @@ export const SERVICES: Service[] = [
       {
         question: 'Quanto tempo leva para instalar um box de banheiro?',
         answer:
-          'Após a medição e aprovação do orçamento, a fabricação e instalação costumam levar de 5 a 7 dias úteis, dependendo do modelo escolhido.',
+          'Após a medição e aprovação do orçamento, a fabricação e instalação costumam levar até 15 dias úteis, dependendo do modelo escolhido.',
       },
       {
         question: 'Qual a diferença entre box de abrir e box de correr?',
